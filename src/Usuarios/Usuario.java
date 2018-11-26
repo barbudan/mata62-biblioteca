@@ -8,7 +8,7 @@ public abstract class Usuario{
 
 	private String nome;
 	private int codigo;
-	private int numReservas = 1;
+	private int numReservas = 0;
 	private int notificacoes = 0;
 	private int numEmprestimos = 0;
 	
