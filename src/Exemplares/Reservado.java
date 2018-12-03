@@ -6,7 +6,8 @@ public class Reservado implements EstadoExemplar {
 	public void alteraDisponibilidade(Exemplar e) {
 		e.setEstado(new Reservado());
 	}
-	public String toString(){
+
+	public String toString() {
 		return "Reservado";
 	}
 

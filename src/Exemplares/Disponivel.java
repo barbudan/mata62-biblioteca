@@ -6,8 +6,8 @@ public class Disponivel implements EstadoExemplar {
 	public void alteraDisponibilidade(Exemplar e) {
 		e.setEstado(new Disponivel());
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return "Disponivel";
 	}
 

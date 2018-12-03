@@ -1,9 +1,8 @@
 package Usuarios;
 
+public class AlunoGraduacao extends Usuario {
 
-public class AlunoGraduacao extends Usuario{
-
-	public AlunoGraduacao(int codigo, String nome) { 
+	public AlunoGraduacao(int codigo, String nome) {
 		super(codigo, nome);
 	}
 }
