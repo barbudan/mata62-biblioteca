@@ -5,8 +5,8 @@ import Livros.Livro;
 public class Exemplar extends Livro {
 	EstadoExemplar Estado;
 
-	public Exemplar(int codigo, EstadoExemplar Emprestado)	{
-		super(codigo);
+	public Exemplar(String titulo, int codigo, int ano, String edicao, String editora, EstadoExemplar Emprestado)	{
+		super(titulo, codigo, ano, edicao, editora);
 		Estado = Emprestado;
 	}
 	

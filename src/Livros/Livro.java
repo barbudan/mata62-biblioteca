@@ -47,6 +47,15 @@ public class Livro {
 		return editora;
 	}
 
+	public boolean verificaEstado() {
+		for (Exemplar e : exemplares) {
+			if (e.getEstado().toString() == "Disponivel") {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
 		// falta verificar se tem >= 2 emprestimos e notificar os observers
@@ -69,5 +78,19 @@ public class Livro {
 		observers.add(o);
 	}
 
-	// falta getreserva, removereserva e removeemprestimo
+	public int getNumExemplaresDisponiveis() {
+		int exemplaresDisponiveis = 0;
+		for (Exemplar e : exemplares) {
+			if (e.getEstado().toString() == "Disponivel") {
+				exemplaresDisponiveis++;
+			}
+		}
+		return exemplaresDisponiveis;
+	}
+
+	public int getNumReservas() {
+		int numReservas = reservas.size();
+		return numReservas;
+	}
+
 }
