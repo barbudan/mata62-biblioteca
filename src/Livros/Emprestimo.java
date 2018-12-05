@@ -32,6 +32,10 @@ public class Emprestimo {
 		return livro.getCodigo();
 	}
 
+	public String getCodigoExemplar() {
+		return codigoExemplar;
+	}
+	
 	public LocalDate getDataEmprestimo() {
 		return dataEmprestimo;
 	}
@@ -40,6 +44,10 @@ public class Emprestimo {
 		return usuario;
 	}
 
+	public LocalDate getDataDevolucaoReal() {
+		return this.dataDevolucaoReal;
+	}
+	
 	public LocalDate getDataPrevistaDevolucao() {
 		return dataPrevistaDevolucao;
 	}
