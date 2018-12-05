@@ -15,6 +15,7 @@ public abstract class Usuario {
 	private int numEmprestimos = 0;
 
 	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+
 	public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
 	public Usuario(int codigo, String nome) {
@@ -38,8 +39,29 @@ public abstract class Usuario {
 		return numEmprestimos;
 	}
 
+	public void addNumReservas() {
+		this.numReservas++;
+	}
+
+	public void addNumEmprestimos() {
+		this.numEmprestimos++;
+	}
+
+	public void subNumEmprestimos() {
+		this.numEmprestimos--;
+	}
+
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
+	}
+
+	public Emprestimo getEmprestimo(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo) {
+				return e;
+			}
+		}
+		return null;
 	}
 
 	public void removeEmprestimo(Emprestimo e) {

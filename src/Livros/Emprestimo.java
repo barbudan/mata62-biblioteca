@@ -28,8 +28,8 @@ public class Emprestimo {
 		return livro;
 	}
 
-	public String getCodigoExemplar() {
-		return codigoExemplar;
+	public int getCodigoLivro() {
+		return livro.getCodigo();
 	}
 
 	public LocalDate getDataEmprestimo() {
