@@ -13,21 +13,25 @@ public class EmprestimoProfessor implements EmprestimoBehavior {
 		String nomeUsuario = usuario.getNome();
 		String tituloLivro = livro.getTitulo();
 
-		boolean livroDisponivel = livro.verificaEstado(); // se falso, não tem livros disponíveis
-		if (!livroDisponivel) {
-			System.out.println("Não foi possível efetuar o empréstimo - Não existem exemplares disponíveis");
+		boolean usuarioemDebito = usuario.verificarDebito();
+		if (usuarioemDebito) {
+			System.out.println("Nao foi possivel efetuar o emprestimo - Usuario esta devendo um livro");
 			return;
 		}
 
-		boolean usuarioemDebito = usuario.verificaDebito();
-		if (usuarioemDebito) {
-			System.out.println("Não foi possível efetuar o empréstimo - Usuário está devendo um livro");
+		boolean livroDisponivel = livro.verificarEstado(); // se falso, não tem livros disponíveis
+		if (!livroDisponivel) {
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis");
 			return;
 		}
 
 		// verifica se o usuário já tem reserva do livro
-		boolean usuarioFezReserva = usuario.verificaReserva(livro.getCodigo());
+		boolean usuarioFezReserva = usuario.verificarReserva(livro.getCodigo());
 
+		// falta:
+		// se o usuario tem reserva, remove a reserva
+		// aumenta o contador de emprestimos
+		// faz a reserva e muda o status
 	}
 
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import Exemplares.Exemplar;
 import Usuarios.Observer;
+import Usuarios.Subject;
 
-public class Livro {
-	// falta implementar a interface Subject
+public class Livro implements Subject {
 	private String titulo;
 	private int codigo;
 	private int ano;
@@ -47,7 +47,7 @@ public class Livro {
 		return editora;
 	}
 
-	public boolean verificaEstado() {
+	public boolean verificarEstado() {
 		for (Exemplar e : exemplares) {
 			if (e.getEstado().toString() == "Disponivel") {
 				return true;
@@ -58,12 +58,16 @@ public class Livro {
 
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
-		// falta verificar se tem >= 2 emprestimos e notificar os observers
+		if (emprestimos.size() >= 2) {
+			notificarObservers();
+		}
 	}
 
 	public void addReserva(Reserva r) {
 		reservas.add(r);
-		// falta verificar se reservas >= 2 e notificar os observers
+		if (reservas.size() >= 2) {
+			notificarObservers();
+		}
 	}
 
 	public void addExemplar(Exemplar e) {
@@ -78,6 +82,21 @@ public class Livro {
 		observers.add(o);
 	}
 
+	@Override
+	public void removerObserver(Observer o) {
+		int n = observers.indexOf(o);
+		if (n >= 0) {
+			observers.remove(n);
+		}
+
+	}
+
+	@Override
+	public void notificarObservers() {
+		// TODO Auto-generated method stub
+
+	}
+
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
 		for (Exemplar e : exemplares) {
@@ -86,6 +105,15 @@ public class Livro {
 			}
 		}
 		return exemplaresDisponiveis;
+	}
+
+	// Verifica se tem menos reservas que exemplares disponiveis
+	// Se sim, retorna true
+	public boolean comparaReservasExemplares() {
+		if (this.getNumExemplaresDisponiveis() > reservas.size()) {
+			return true;
+		}
+		return false;
 	}
 
 	public int getNumReservas() {

@@ -3,7 +3,10 @@ package Usuarios;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import Emprestimo.EmprestimoBehavior;
+import Emprestimo.EmprestimoProfessor;
 import Livros.Emprestimo;
+import Livros.Livro;
 import Livros.Reserva;
 
 public abstract class Usuario {
@@ -13,6 +16,7 @@ public abstract class Usuario {
 	private int numReservas = 0;
 	private int notificacoes = 0;
 	private int numEmprestimos = 0;
+	EmprestimoBehavior emprestimoBehavior;
 
 	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 
@@ -64,7 +68,16 @@ public abstract class Usuario {
 		return null;
 	}
 
-	public void removeEmprestimo(Emprestimo e) {
+	public boolean livroJaComoUsuario(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void removerEmprestimo(Emprestimo e) {
 		int index = emprestimos.indexOf(e);
 		if (index >= 0) {
 			emprestimos.remove(index);
@@ -72,7 +85,7 @@ public abstract class Usuario {
 	}
 
 	// verifica, através do código do livro, se o usuário já tem reserva do livro
-	public boolean verificaReserva(int codigo) {
+	public boolean verificarReserva(int codigo) {
 		for (Reserva r : reservas) {
 			if (r.getCodigoLivro() == codigo) {
 				return true;
@@ -81,7 +94,7 @@ public abstract class Usuario {
 		return false;
 	}
 
-	public boolean verificaDebito() {
+	public boolean verificarDebito() {
 		LocalDate dataAtual = LocalDate.now();
 		for (Emprestimo e : emprestimos) {
 			LocalDate dataPrevista = e.getDataPrevistaDevolucao();
@@ -92,4 +105,28 @@ public abstract class Usuario {
 		return false;
 
 	}
+
+	// falta testar o nome do usuário
+	public void listarEmprestimos() {
+		System.out.println("Emprestimos do usuario " + this.getNome() + "/n");
+		for (Emprestimo e : emprestimos) {
+			System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
+			System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
+			System.out.println("Status: " + e.getEstadoLivro() + "\n");
+			if (e.getEstadoLivro() == "Finalizado") {
+				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao() + "\n");
+			} else {
+				System.out.println("O emprestimo sera finalizado no dia: " + e.getDataPrevistaDevolucao() + "\n");
+			}
+		}
+	}
+
+	public void listarReservas() {
+		System.out.println("Reservas do usuario " + this.getNome() + "\n");
+		for (Reserva r : reservas) {
+			System.out.println("Titulo: " + r.getTitulo() + "\n");
+			System.out.println("Data da reserva: " + r.getDataReserva() + "\n");
+		}
+	}
+
 }

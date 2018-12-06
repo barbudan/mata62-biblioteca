@@ -10,18 +10,19 @@ public class Emprestimo {
 	LocalDate dataEmprestimo;
 	Usuario usuario;
 	LocalDate dataPrevistaDevolucao;
-	LocalDate dataDevolucaoReal;
+	LocalDate dataDevolucao;
+	private String estadoLivro;
 
-	public Emprestimo(Usuario u, Livro l, int n, String codigoExemplar) {
-		this.usuario = u;
-		this.livro = l;
+	public Emprestimo(Usuario usuario, Livro livro, int numeroDias, String codigoExemplar) {
+		this.usuario = usuario;
+		this.livro = livro;
 		this.dataEmprestimo = LocalDate.now();
 		this.codigoExemplar = codigoExemplar;
-		this.dataPrevistaDevolucao = LocalDate.now().plusDays(n);
+		this.dataPrevistaDevolucao = LocalDate.now().plusDays(numeroDias);
 	}
 
-	public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
-		this.dataDevolucaoReal = dataDevolucaoReal;
+	public void setDataDevolucao(LocalDate dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
 	}
 
 	public Livro getLivro() {
@@ -35,7 +36,7 @@ public class Emprestimo {
 	public String getCodigoExemplar() {
 		return codigoExemplar;
 	}
-	
+
 	public LocalDate getDataEmprestimo() {
 		return dataEmprestimo;
 	}
@@ -44,12 +45,19 @@ public class Emprestimo {
 		return usuario;
 	}
 
-	public LocalDate getDataDevolucaoReal() {
-		return this.dataDevolucaoReal;
+	public LocalDate getDataDevolucao() {
+		return this.dataDevolucao;
 	}
-	
+
 	public LocalDate getDataPrevistaDevolucao() {
 		return dataPrevistaDevolucao;
 	}
 
+	public void setEstadoLivro(String estado) {
+		this.estadoLivro = estado;
+	}
+
+	public String getEstadoLivro() {
+		return this.estadoLivro;
+	}
 }

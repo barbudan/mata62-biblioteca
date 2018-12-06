@@ -1,9 +1,9 @@
 package Usuarios;
 
 public interface Subject {
-	public void addObservador(Observer o);
+	public void addObserver(Observer o);
 
-	public void removerObservador(Observer o);
+	public void removerObserver(Observer o);
 
-	public void notificarObservadores();
+	public void notificarObservers();
 }

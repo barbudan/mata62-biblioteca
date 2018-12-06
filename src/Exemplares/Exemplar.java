@@ -2,20 +2,26 @@ package Exemplares;
 
 import Livros.Livro;
 
-public class Exemplar extends Livro {
+public class Exemplar {
+	private String codigoExemplar;
+	Livro livro;
 	EstadoExemplar Estado;
 
-	public Exemplar(String titulo, int codigo, int ano, String edicao, String editora, EstadoExemplar Emprestado) {
-		super(titulo, codigo, ano, edicao, editora);
+	public Exemplar(String codigoExemplar, EstadoExemplar Emprestado) {
+		this.codigoExemplar = codigoExemplar;
 		Estado = Emprestado;
 	}
 
-	public void setEstado(EstadoExemplar novoEstado) {
-		Estado = novoEstado;
+	public String getCodigoExemplar() {
+		return codigoExemplar;
 	}
 
 	public String getStatusExemplar() {
 		return Estado.toString();
+	}
+
+	public void setEstado(EstadoExemplar novoEstado) {
+		Estado = novoEstado;
 	}
 
 	public EstadoExemplar getEstado() {
