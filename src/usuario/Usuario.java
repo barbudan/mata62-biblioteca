@@ -121,6 +121,22 @@ public abstract class Usuario {
 		}
 	}
 
+	public Reserva getReserva(int codigoLivro) {
+		for(Reserva r : reservas) {
+			if(r.getCodigoLivro() == codigoLivro) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	public void removerReserva(Reserva r) {
+		int index = reservas.indexOf(r);
+		if (index >= 0) {
+			reservas.remove(index);
+		}
+	}
+	
 	public void listarReservas() {
 		System.out.println("Reservas do usuario " + this.getNome() + "\n");
 		for (Reserva r : reservas) {

@@ -50,11 +50,55 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 			return;
 		}
 
-
+		Exemplar exemp = livro.getExemplarDisponivel();
+		String codigoDoExemplar = exemp.getCodigoExemplar();
 		// Implementar o emprestimo se
 		// 1- Usuário tem reserva e não tem menos reservas que exemplares
 		// 2- Tem menos reservas que exemplares e o usuário não tem reserva
 		// 3- Tem menos reservas que exemplares e o usuário tem reserva
+		if (maisExemplaresQueReservas && usuarioFezReserva) {
+		
+			Reserva r = usuario.getReserva(livro.getCodigo());
+			usuario.removerReserva(r);
+			r = livro.getReserva(usuario.getCodigo());
+			livro.removerReserva(r);
+			Emprestimo e = new Emprestimo(usuario, livro, 4, codigoDoExemplar);
+			usuario.addEmprestimo(e);
+			livro.addEmprestimo(e);
+			e.setEstadoLivro("Emprestado");
+			Exemplar exemplar = livro.getExemplarDisponivel();
+			exemplar.setEstado(new Emprestado());
+			usuario.addNumEmprestimos();
+			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			
+		} else if (maisExemplaresQueReservas && !(usuarioFezReserva)) {
+			
+			Emprestimo e = new Emprestimo(usuario, livro, 4, codigoDoExemplar);
+			usuario.addEmprestimo(e);
+			livro.addEmprestimo(e);
+			e.setEstadoLivro("Emprestado");
+			Exemplar exemplar = livro.getExemplarDisponivel();
+			exemplar.setEstado(new Emprestado());
+			usuario.addEmprestimo(e);
+			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			
+		}
+		else if(!(maisExemplaresQueReservas)&&usuarioFezReserva) {
+			
+			Reserva r = usuario.getReserva(livro.getCodigo());
+			usuario.removerReserva(r);
+			r = livro.getReserva(usuario.getCodigo());
+			livro.removerReserva(r);
+			Emprestimo e = new Emprestimo(usuario, livro, 4, codigoDoExemplar);
+			usuario.addEmprestimo(e);
+			livro.addEmprestimo(e);
+			e.setEstadoLivro("Emprestado");
+			Exemplar exemplar = livro.getExemplarDisponivel();
+			exemplar.setEstado(new Emprestado());
+			usuario.addEmprestimo(e);
+			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+					
+		}
 	}
 
 }

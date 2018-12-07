@@ -90,11 +90,28 @@ public class Livro implements Subject {
 		}
 	}
 
+	public Reserva getReserva(int codigoLivro) {
+		for(Reserva r : reservas) {
+			if(r.getCodigoLivro() == codigoLivro) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
 	public void adicionarExemplar(Exemplar e) {
 		exemplares.add(e);
 	}
 
-
+	public Exemplar getExemplarDisponivel() {
+		for(Exemplar e : exemplares) {
+			if(e.getEstado().toString() == "Disponivel") {
+				return e;
+			}
+		}
+		return null;
+	}
+	
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
 		for (Exemplar e : exemplares) {
