@@ -14,7 +14,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 		String tituloLivro = livro.getTitulo();
 
 		// Verifica se há livros disponíveis
-		boolean livroDisponivel = livro.verificarEstado();
+		boolean livroDisponivel = livro.estaDisponivel();
 		if (!livroDisponivel) {
 			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem usuarios disponiveis");
 			return;

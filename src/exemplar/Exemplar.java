@@ -14,8 +14,8 @@ public class Exemplar {
 		return codigoExemplar;
 	}
 
-	public String getStatusExemplar() {
-		return estado.toString();
+	public String getNomeEstadoExemplar() {
+		return estado.getClass().getName();
 	}
 
 	public void setEstado(EstadoExemplar novoEstado) {

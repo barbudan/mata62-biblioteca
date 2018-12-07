@@ -13,6 +13,7 @@ public class Livro implements Subject {
 	private String edicao;
 	private String editora;
 	private String autor;
+	private boolean flagReserva = false; // Flag que detecta a necessidade de notificar Observadores
 
 	public Livro(String titulo, int codigo, int ano, String edicao, String editora, String autor) {
 		this.titulo = titulo;
@@ -26,8 +27,9 @@ public class Livro implements Subject {
 	private ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 	private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 	private ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
-	private ArrayList<Observer> observers = new ArrayList<Observer>();
+	private ArrayList<Observer> observadores = new ArrayList<Observer>();
 
+	// GETTERS //
 	public int getCodigo() {
 		return codigo;
 	}
@@ -51,51 +53,47 @@ public class Livro implements Subject {
 	public String getAutor() {
 		return autor;
 	}
-	public boolean verificarEstado() {
+	
+	
+	// MÉTODOS AUXILIARES //
+	
+	public boolean estaDisponivel() {
 		for (Exemplar e : exemplares) {
-			if (e.getEstado().toString() == "Disponivel") {
+			if (e.getNomeEstadoExemplar() == "Disponivel") {
 				return true;
 			}
 		}
 		return false;
 	}
-
+	
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
 		if (emprestimos.size() >= 2) {
-			notificarObservers();
+			notificarObservadores();
 		}
 	}
 
-	public void addReserva(Reserva r) {
+	public void adicionarReserva(Reserva r) {
 		reservas.add(r);
-		if (reservas.size() >= 2) {
-			notificarObservers();
+		if (reservas.size() > 2 && flagReserva==false) {
+			flagReserva=true;
+			notificarObservadores();
+		}
+	}
+	
+	public void removerReserva(Reserva r) {
+		int n = reservas.indexOf(r);
+		if (n >= 0) {
+			reservas.remove(r);
+			if(reservas.size()<=2)
+				flagReserva=false;
 		}
 	}
 
-	public void addExemplar(Exemplar e) {
+	public void adicionarExemplar(Exemplar e) {
 		exemplares.add(e);
 	}
 
-	public void addObserver(Observer o) {
-		observers.add(o);
-	}
-
-	@Override
-	public void removerObserver(Observer o) {
-		int n = observers.indexOf(o);
-		if (n >= 0) {
-			observers.remove(n);
-		}
-
-	}
-
-	@Override
-	public void notificarObservers() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
@@ -119,6 +117,34 @@ public class Livro implements Subject {
 	public int getNumReservas() {
 		int numReservas = reservas.size();
 		return numReservas;
+	}
+	
+	
+	// PADRÃO OBSERVER //
+	
+	@Override
+	// Registra Observador
+	public void registraObservador(Observer o) {
+		observadores.add(o);
+	}
+
+	@Override
+	// Remove Observador
+	public void removerObservador(Observer o) {
+		int n = observadores.indexOf(o);
+		if (n >= 0) {
+			observadores.remove(n);
+		}
+	}
+
+	@Override
+	// Notifica Observador
+	public void notificarObservadores() {
+		for(int i=0;i<observadores.size();i++)
+		{
+			Observer o = observadores.get(i);
+			o.update(this);
+		}
 	}
 
 }

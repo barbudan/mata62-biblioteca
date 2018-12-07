@@ -1,9 +1,7 @@
 package usuario;
 
 public interface Subject {
-	public void addObserver(Observer o);
-
-	public void removerObserver(Observer o);
-
-	public void notificarObservers();
+	public void registraObservador(Observer o);
+	public void removerObservador(Observer o);
+	public void notificarObservadores();
 }
