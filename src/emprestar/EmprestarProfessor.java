@@ -19,7 +19,7 @@ public class EmprestarProfessor implements EmprestarBehavior {
 			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis");
 			return;
 		}
-		
+
 		// Verifica se Usuário está em débito
 		boolean usuarioemDebito = usuario.verificarDebito();
 		if (usuarioemDebito) {
@@ -30,10 +30,26 @@ public class EmprestarProfessor implements EmprestarBehavior {
 		// Verifica se o Usuário Reservou o Livro Solicitado
 		boolean usuarioFezReserva = usuario.verificarReserva(livro.getCodigo());
 
-		// falta:
-		// se o usuario tem reserva, remove a reserva
-		// aumenta o contador de emprestimos
-		// faz a reserva e muda o status
+		Exemplar exemp = livro.getExemplarDisponivel();
+		String codigoDoExemplar = exemp.getCodigoExemplar();
+
+		if (usuarioFezReserva) {
+			// Remover a reserva realizada
+			Reserva r = usuario.getReserva(livro.getCodigo());
+			usuario.removerReserva(r);
+			r = livro.getReserva(usuario.getCodigo());
+			livro.removerReserva(r);
+		}
+		// Adicionar o empréstimo
+		Emprestimo e = new Emprestimo(usuario, livro, 7, codigoDoExemplar);
+		usuario.addEmprestimo(e);
+		livro.addEmprestimo(e);
+		// Alterar o estado do exemplar
+		e.setEstadoLivro("Emprestado");
+		exemp.setEstado(new Emprestado());
+		usuario.addNumEmprestimos();
+		System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+
 	}
 
 }

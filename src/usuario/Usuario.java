@@ -27,6 +27,7 @@ public abstract class Usuario {
 		this.nomeUsuario = nome;
 	}
 
+	// GETTERS //
 	public int getCodigo() {
 		return codigoUsuario;
 	}
@@ -43,6 +44,25 @@ public abstract class Usuario {
 		return numEmprestimos;
 	}
 
+	public Emprestimo getEmprestimo(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo) {
+				return e;
+			}
+		}
+		return null;
+	}
+
+	public Reserva getReserva(int codigoLivro) {
+		for (Reserva r : reservas) {
+			if (r.getCodigoLivro() == codigoLivro) {
+				return r;
+			}
+		}
+		return null;
+	}
+
+	// MÉTODOS AUXILIARES //
 	public void addNumReservas() {
 		this.numReservas++;
 	}
@@ -59,13 +79,11 @@ public abstract class Usuario {
 		emprestimos.add(e);
 	}
 
-	public Emprestimo getEmprestimo(int codigo) {
-		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo) {
-				return e;
-			}
+	public void removerEmprestimo(Emprestimo e) {
+		int index = emprestimos.indexOf(e);
+		if (index >= 0) {
+			emprestimos.remove(index);
 		}
-		return null;
 	}
 
 	public boolean livroEstaComUsuario(int codigo) {
@@ -77,13 +95,6 @@ public abstract class Usuario {
 		return false;
 	}
 
-	public void removerEmprestimo(Emprestimo e) {
-		int index = emprestimos.indexOf(e);
-		if (index >= 0) {
-			emprestimos.remove(index);
-		}
-	}
-
 	// verifica, através do código do livro, se o usuário já tem reserva do livro
 	public boolean verificarReserva(int codigo) {
 		for (Reserva r : reservas) {
@@ -92,6 +103,13 @@ public abstract class Usuario {
 			}
 		}
 		return false;
+	}
+
+	public void removerReserva(Reserva r) {
+		int index = reservas.indexOf(r);
+		if (index >= 0) {
+			reservas.remove(index);
+		}
 	}
 
 	public boolean verificarDebito() {
@@ -121,22 +139,6 @@ public abstract class Usuario {
 		}
 	}
 
-	public Reserva getReserva(int codigoLivro) {
-		for(Reserva r : reservas) {
-			if(r.getCodigoLivro() == codigoLivro) {
-				return r;
-			}
-		}
-		return null;
-	}
-	
-	public void removerReserva(Reserva r) {
-		int index = reservas.indexOf(r);
-		if (index >= 0) {
-			reservas.remove(index);
-		}
-	}
-	
 	public void listarReservas() {
 		System.out.println("Reservas do usuario " + this.getNome() + "\n");
 		for (Reserva r : reservas) {
