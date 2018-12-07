@@ -55,24 +55,8 @@ public class Livro implements Subject {
 	}
 	
 	
-	// MÉTODOS AUXILIARES //
+	// MÉTODOS EM RESERVA //
 	
-	public boolean estaDisponivel() {
-		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar() == "Disponivel") {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public void addEmprestimo(Emprestimo e) {
-		emprestimos.add(e);
-		if (emprestimos.size() >= 2) {
-			notificarObservadores();
-		}
-	}
-
 	public void adicionarReserva(Reserva r) {
 		reservas.add(r);
 		if (reservas.size() > 2 && flagReserva==false) {
@@ -99,13 +83,70 @@ public class Livro implements Subject {
 		return null;
 	}
 	
+	public int getNumReservas() {
+		int numReservas = reservas.size();
+		return numReservas;
+	}
+	
+	// MÉTODOS EM EMPRESTIMO //
+	
+	public void addEmprestimo(Emprestimo e) {
+		emprestimos.add(e);
+		if (emprestimos.size() >= 2) {
+			notificarObservadores();
+		}
+	}
+	
+	// MÉTODOS EM EXEMPLAR //
+	
+	public boolean estaDisponivel() {
+		for (Exemplar e : exemplares) {
+			if (e.getNomeEstadoExemplar() == "Disponivel") {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean estaReservado() {
+		for (Exemplar e : exemplares) {
+			if (e.getNomeEstadoExemplar() == "Reservado") {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void adicionarExemplar(Exemplar e) {
 		exemplares.add(e);
+	}
+	
+	public void removerExemplar(Exemplar e) {
+		if(exemplares.size()>0)
+		{
+			int i = exemplares.indexOf(e);
+			exemplares.remove(i);
+		}
+	}
+	
+	public boolean existeExemplar() {
+		if(exemplares.size()>0)
+			return true;
+		return false;
 	}
 
 	public Exemplar getExemplarDisponivel() {
 		for(Exemplar e : exemplares) {
-			if(e.getEstado().toString() == "Disponivel") {
+			if(e.getNomeEstadoExemplar() == "Disponivel") {
+				return e;
+			}
+		}
+		return null;
+	}
+	
+	public Exemplar getExemplarReservado() {
+		for(Exemplar e : exemplares) {
+			if(e.getNomeEstadoExemplar() == "Reservado") {
 				return e;
 			}
 		}
@@ -115,25 +156,30 @@ public class Livro implements Subject {
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
 		for (Exemplar e : exemplares) {
-			if (e.getEstado().toString() == "Disponivel") {
+			if (e.getNomeEstadoExemplar() == "Disponivel") {
 				exemplaresDisponiveis++;
 			}
 		}
 		return exemplaresDisponiveis;
 	}
+	
+	public int getNumExemplaresReservados() {
+		int exemplaresReservados = 0;
+		for (Exemplar e : exemplares) {
+			if (e.getNomeEstadoExemplar() == "Reservado") {
+				exemplaresReservados++;
+			}
+		}
+		return exemplaresReservados;
+	}
 
 	// Verifica se tem menos reservas que exemplares disponiveis
 	// Se sim, retorna true
-	public boolean maisExemplaresQueReservas() {
+	public boolean maisExemplaresDisponiveisQueReservados() {
 		if (this.getNumExemplaresDisponiveis() > reservas.size()) {
 			return true;
 		}
 		return false;
-	}
-
-	public int getNumReservas() {
-		int numReservas = reservas.size();
-		return numReservas;
 	}
 	
 	

@@ -12,34 +12,34 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 	public void emprestar(Usuario usuario, Livro livro) {
 		String nomeUsuario = usuario.getNome();
 		String tituloLivro = livro.getTitulo();
+		
+		int codigoLivro = livro.getCodigo();
 
-		// Verifica se há livros disponíveis
-		boolean livroDisponivel = livro.estaDisponivel();
-		if (!livroDisponivel) {
-			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem usuarios disponiveis");
+		if(!livro.existeExemplar()){
+			System.out.println("Não foi possivel efetuar o emprestimo - Não existem exemplares para este livro");
 			return;
 		}
-
+		
+		boolean usuarioFezReserva = usuario.verificarReserva(codigoLivro);
+		
 		// Verifica se Usuário está em débito
 		boolean usuarioemDebito = usuario.verificarDebito();
 		if (usuarioemDebito) {
 			System.out.println("Nao foi possivel efetuar o emprestimo - O Usuario esta devendo um livro");
 			return;
 		}
-
+				
 		// Verifica se o Usuário atingiu o Limite de Empréstimos
 		int numEmprestimos = usuario.getNumEmprestimos();
 		if (numEmprestimos == 3) {
 			System.out.println("Nao foi possivel efetuar o emprestimo - Limite de emprestimos atingido");
 			return;
-		}
-
-		// Verifica se o Usuário já reservou o Livro Solicitado
-		int codigoLivro = livro.getCodigo();
-		boolean usuarioFezReserva = usuario.verificarReserva(codigoLivro);
-		boolean maisExemplaresQueReservas = livro.maisExemplaresQueReservas();
-		if (!(maisExemplaresQueReservas) && !(usuarioFezReserva)) {
-			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis");
+		}		
+		
+		// Verifica se não há mais exemplar disponível que reserva e o Usuário não tem Reservas
+		boolean maisExemplaresDisponiveisQueReservados = livro.maisExemplaresDisponiveisQueReservados();
+		if (!(maisExemplaresDisponiveisQueReservados) && !(usuarioFezReserva)) {
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis e o Usuário não possui Reserva");
 			return;
 		}
 
@@ -50,53 +50,49 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			return;
 		}
 
-		Exemplar exemp = livro.getExemplarDisponivel();
-		String codigoDoExemplar = exemp.getCodigoExemplar();
-
-		if (maisExemplaresQueReservas && usuarioFezReserva) {
-			// Remover a reserva realizada
+		if(!livro.estaReservado() && !livro.estaDisponivel())
+		{
+			System.out.println("Não foi possivel efetuar o emprestimo - Não há Exemplares Disponíveis");
+			return;
+		}
+		
+		Exemplar exemplar;
+		String codigoDoExemplar;
+		
+		if(usuarioFezReserva && livro.estaReservado()) {
+			
+			exemplar = livro.getExemplarReservado();
+			codigoDoExemplar = exemplar.getCodigoExemplar();
 			Reserva r = usuario.getReserva(livro.getCodigo());
 			usuario.removerReserva(r);
 			r = livro.getReserva(usuario.getCodigo());
 			livro.removerReserva(r);
-			// Adicionar o empréstimo
-			Emprestimo e = new Emprestimo(usuario, livro, 3, codigoDoExemplar);
+			
+			exemplar.emprestarExemplar();
+			Emprestimo e = new Emprestimo(usuario, livro, exemplar, 3, codigoDoExemplar);
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
-			// Alterar o estado do exemplar
-			e.setEstadoLivro("Emprestado");
-			exemp.setEstado(new Emprestado());
 			usuario.addNumEmprestimos();
 			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
-
-		} else if (maisExemplaresQueReservas && !(usuarioFezReserva)) {
-			// Adicionar o empréstimo
-			Emprestimo e = new Emprestimo(usuario, livro, 3, codigoDoExemplar);
+			return;
+			
+		} else if(livro.estaDisponivel()) {
+			
+			exemplar = livro.getExemplarDisponivel();
+			codigoDoExemplar = exemplar.getCodigoExemplar();
+			
+			exemplar.emprestarExemplar();
+			Emprestimo e = new Emprestimo(usuario, livro, exemplar, 3, codigoDoExemplar);
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
-			// Alterar o estado do exemplar
-			e.setEstadoLivro("Emprestado");
-			exemp.setEstado(new Emprestado());
-			usuario.addEmprestimo(e);
+			usuario.addNumEmprestimos();
 			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
-
-		} else if (!(maisExemplaresQueReservas) && usuarioFezReserva) {
-			// Remover a reserva realizada
-			Reserva r = usuario.getReserva(livro.getCodigo());
-			usuario.removerReserva(r);
-			r = livro.getReserva(usuario.getCodigo());
-			livro.removerReserva(r);
-			// Adicionar o empréstimo
-			Emprestimo e = new Emprestimo(usuario, livro, 3, codigoDoExemplar);
-			usuario.addEmprestimo(e);
-			livro.addEmprestimo(e);
-			// Alterar o estado
-			e.setEstadoLivro("Emprestado");
-			exemp.setEstado(new Emprestado());
-			usuario.addEmprestimo(e);
-			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
-
+			return;
 		}
+		
+		
+		return;
+		
 	}
 
 }

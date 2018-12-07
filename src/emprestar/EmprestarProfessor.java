@@ -14,9 +14,13 @@ public class EmprestarProfessor implements EmprestarBehavior {
 		String tituloLivro = livro.getTitulo();
 
 		// Verifica se há livros disponíveis
-		boolean livroDisponivel = livro.estaDisponivel();
-		if (!livroDisponivel) {
-			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis");
+		
+		if(!livro.existeExemplar()) {
+			System.out.println("Não foi possivel efetuar o emprestimo - Nao ha exemplares para este livro na Biblioteca");
+		}
+		
+		if (!livro.estaDisponivel() && !livro.estaReservado()) {
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares disponiveis para este Usuario");
 			return;
 		}
 
@@ -26,27 +30,15 @@ public class EmprestarProfessor implements EmprestarBehavior {
 			System.out.println("Nao foi possivel efetuar o emprestimo - Usuario esta devendo um livro");
 			return;
 		}
-
-		// Verifica se o Usuário Reservou o Livro Solicitado
-		boolean usuarioFezReserva = usuario.verificarReserva(livro.getCodigo());
-
-		Exemplar exemp = livro.getExemplarDisponivel();
-		String codigoDoExemplar = exemp.getCodigoExemplar();
-
-		if (usuarioFezReserva) {
-			// Remover a reserva realizada
-			Reserva r = usuario.getReserva(livro.getCodigo());
-			usuario.removerReserva(r);
-			r = livro.getReserva(usuario.getCodigo());
-			livro.removerReserva(r);
-		}
-		// Adicionar o empréstimo
-		Emprestimo e = new Emprestimo(usuario, livro, 7, codigoDoExemplar);
+		
+		Exemplar exemplar = livro.getExemplarDisponivel();
+		String codigoDoExemplar = exemplar.getCodigoExemplar();
+		
+		// Adiciona o empréstimo
+		exemplar.emprestarExemplar();
+		Emprestimo e = new Emprestimo(usuario, livro, exemplar, 7, codigoDoExemplar);
 		usuario.addEmprestimo(e);
 		livro.addEmprestimo(e);
-		// Alterar o estado do exemplar
-		e.setEstadoLivro("Emprestado");
-		exemp.setEstado(new Emprestado());
 		usuario.addNumEmprestimos();
 		System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
 

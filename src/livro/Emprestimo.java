@@ -3,6 +3,7 @@ package livro;
 import java.time.LocalDate;
 
 import usuario.Usuario;
+import exemplar.Exemplar;
 
 public class Emprestimo {
 	Livro livro;
@@ -11,11 +12,13 @@ public class Emprestimo {
 	Usuario usuario;
 	LocalDate dataPrevistaDevolucao;
 	LocalDate dataDevolucao;
+	Exemplar exemplar;
 	private String estadoLivro;
 
-	public Emprestimo(Usuario usuario, Livro livro, int numeroDias, String codigoExemplar) {
+	public Emprestimo(Usuario usuario, Livro livro, Exemplar exemplar, int numeroDias, String codigoExemplar) {
 		this.usuario = usuario;
 		this.livro = livro;
+		this.exemplar = exemplar;
 		this.dataEmprestimo = LocalDate.now();
 		this.codigoExemplar = codigoExemplar;
 		this.dataPrevistaDevolucao = LocalDate.now().plusDays(numeroDias);

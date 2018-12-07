@@ -25,5 +25,17 @@ public class Exemplar {
 	public EstadoExemplar getEstado() {
 		return this.estado;
 	}
+	
+	public void disponibilizarExemplar() {
+		estado.disponibilizarExemplar(this);
+	}
+	
+	public void emprestarExemplar() {
+		estado.emprestarExemplar(this);
+	}
+	
+	public void reservarExemplar() {
+		estado.reservarExemplar(this);
+	}
 
 }
