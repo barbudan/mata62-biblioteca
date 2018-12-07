@@ -24,10 +24,10 @@ public class Livro implements Subject {
 		this.autor = autor;
 	}
 
-	private ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
-	private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
-	private ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
-	private ArrayList<Observer> observadores = new ArrayList<Observer>();
+	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+	public ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+	public ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+	public ArrayList<Observer> observadores = new ArrayList<Observer>();
 
 	// GETTERS //
 	public int getCodigo() {
@@ -180,6 +180,14 @@ public class Livro implements Subject {
 			return true;
 		}
 		return false;
+	}
+	
+	public void listarUsuariosComReservas() {
+		// implementar
+	}
+	
+	public void listarExemplares() {
+		
 	}
 	
 	

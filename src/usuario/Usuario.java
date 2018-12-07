@@ -112,6 +112,10 @@ public abstract class Usuario {
 		}
 	}
 
+	public void fazerEmprestimo(Usuario usuario, Livro livro) {
+		emprestimoBehavior.emprestar(usuario, livro);
+	}
+
 	public boolean verificarDebito() {
 		LocalDate dataAtual = LocalDate.now();
 		for (Emprestimo e : emprestimos) {
