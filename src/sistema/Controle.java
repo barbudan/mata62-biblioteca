@@ -79,7 +79,24 @@ public class Controle {
 		livro5.adicionarExemplar(exemplar6);
 		livro5.adicionarExemplar(exemplar7);
 		livro7.adicionarExemplar(exemplar8);
-		livro7.adicionarExemplar(exemplar8);
+		livro7.adicionarExemplar(exemplar9);
+		
+		Biblioteca b = Biblioteca.getInstancia();
+		
+		b.addLivro(livro1);
+		b.addLivro(livro2);
+		b.addLivro(livro3);
+		b.addLivro(livro4);
+		b.addLivro(livro5);
+		b.addLivro(livro6);
+		b.addLivro(livro7);
+		b.addLivro(livro8);
+		
+		b.addUsuario(user1);
+		b.addUsuario(user2);
+		b.addUsuario(user3);
+		b.addUsuario(user4);
+		
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Seja bem-vindo ao Sistema de Bibliotecas");
