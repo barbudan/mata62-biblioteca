@@ -1,10 +1,10 @@
 package sistema;
 
-import Aplicacao.Biblioteca;
-import Aplicacao.Parametros;
-import Aplicacao.realizarEmprestimo;
-import Livros.Livro;
-import Usuarios.Usuario;
+import sistema.Biblioteca;
+import sistema.Parametros;
+//import sistema.realizarEmprestimo;
+import livro.Livro;
+import usuario.Usuario;
 
 public class EmprestarLivro implements Comando {
 

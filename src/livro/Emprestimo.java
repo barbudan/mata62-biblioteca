@@ -63,4 +63,12 @@ public class Emprestimo {
 	public String getEstadoLivro() {
 		return this.estadoLivro;
 	}
+	
+	public Exemplar getExemplar() {
+		return this.exemplar;
+	}
+	
+	public String getNomeEstadoExemplar() {
+		return exemplar.getNomeEstadoExemplar();
+	}
 }

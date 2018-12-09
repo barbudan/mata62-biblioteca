@@ -1,9 +1,9 @@
 package sistema;
 
-import Aplicacao.Biblioteca;
-import Aplicacao.Parametros;
-import Aplicacao.realizarConsultaLivro;
-import Livros.Livro;
+import sistema.Biblioteca;
+import sistema.Parametros;
+//import sistema.realizarConsultaLivro;
+import livro.Livro;
 
 public class ConsultarLivro implements Comando {
 	@Override
@@ -18,15 +18,15 @@ public class ConsultarLivro implements Comando {
 
 		Biblioteca b = Biblioteca.getInstancia();
 
-		livro.Livro livro = b.getLivro(codigoLivro);
+		Livro livro = b.getLivro(codigoLivro);
 
 		if (livro == null) {
 			System.out.println("Livro nao encontrado");
 			return;
 		} else {
 			System.out.println(livro.getTitulo() + "\n");
-			System.out.println("Quantidade de reservas: " + livro.reservas.size() + "\n");
-			if (livro.reservas.size() > 0) {
+			System.out.println("Quantidade de reservas: " + livro.getQuantidadeReservas() + "\n");
+			if (livro.getQuantidadeReservas() > 0) {
 				livro.listarUsuariosComReservas();
 			}
 			System.out.println("EXEMPLARES \n");

@@ -8,6 +8,7 @@ import emprestar.EmprestarProfessor;
 import livro.Emprestimo;
 import livro.Livro;
 import livro.Reserva;
+import exemplar.Exemplar;
 
 public abstract class Usuario {
 
@@ -135,7 +136,7 @@ public abstract class Usuario {
 			System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
 			System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
 			System.out.println("Status: " + e.getEstadoLivro() + "\n");
-			if (e.getEstadoLivro() == "Finalizado") {
+			if (e.getNomeEstadoExemplar() == "Finalizado") {
 				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao() + "\n");
 			} else {
 				System.out.println("O emprestimo sera finalizado no dia: " + e.getDataPrevistaDevolucao() + "\n");
