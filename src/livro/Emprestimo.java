@@ -13,7 +13,7 @@ public class Emprestimo {
 	LocalDate dataPrevistaDevolucao;
 	LocalDate dataDevolucao;
 	Exemplar exemplar;
-	private String estadoLivro;
+	private String estadoExemplar;
 
 	public Emprestimo(Usuario usuario, Livro livro, Exemplar exemplar, int numeroDias, String codigoExemplar) {
 		this.usuario = usuario;
@@ -56,16 +56,20 @@ public class Emprestimo {
 		return dataPrevistaDevolucao;
 	}
 
-	public void setEstadoLivro(String estado) {
-		this.estadoLivro = estado;
+	public void setEstadoExemplar(String estado) {
+		this.estadoExemplar = estado;
 	}
 
-	public String getEstadoLivro() {
-		return this.estadoLivro;
+	public String getEstadoExemplar() {
+		return this.estadoExemplar;
 	}
 	
 	public Exemplar getExemplar() {
 		return this.exemplar;
+	}
+	
+	public String getNomeUsuario() {
+		return usuario.getNome();
 	}
 	
 	public String getNomeEstadoExemplar() {

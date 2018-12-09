@@ -187,11 +187,36 @@ public class Livro implements Subject {
 	}
 	
 	public void listarUsuariosComReservas() {
-		// implementar
+		for(Reserva r : reservas)
+		{
+			System.out.println("RESERVAS");
+			System.out.println("Nome do Usuario: " + r.getNomeUsuario());
+		}
 	}
 	
 	public void listarExemplares() {
-		
+		if(existeExemplar())
+		{
+			for(Exemplar exemplar : exemplares)
+			{
+				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar());
+				System.out.println("Status do Exemplar: " + exemplar.getNomeEstadoExemplar());
+				if(exemplar.getNomeEstadoExemplar() == "Emprestado")
+				{
+					for(Emprestimo emp : emprestimos)
+					{
+						if(emp.getCodigoExemplar() == exemplar.getCodigoExemplar())
+						{
+							System.out.println("O exemplar está emprestado para o Usuario " + emp.getNomeUsuario());
+							System.out.println("Data do Empréstimo: " + emp.getDataEmprestimo());
+							System.out.println("Data Prevista de Devolução: " + emp.getDataPrevistaDevolucao());
+							break;
+						}
+					}
+				}
+				
+			}
+		}
 	}
 	
 	
@@ -221,5 +246,6 @@ public class Livro implements Subject {
 			o.update(this);
 		}
 	}
+
 
 }

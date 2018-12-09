@@ -139,16 +139,28 @@ public abstract class Usuario {
 	// falta testar o nome do usuário
 	public void listarEmprestimos() {
 		System.out.println("Emprestimos do usuario " + this.getNome() + "/n");
-		for (Emprestimo e : emprestimos) {
-			System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
-			System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
-			System.out.println("Status: " + e.getEstadoLivro() + "\n");
-			if (e.getNomeEstadoExemplar() == "Finalizado") {
+		
+		System.out.println("Empréstimos em Curso");
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getDataDevolucao()==null)
+			{
+				System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
 				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao() + "\n");
-			} else {
-				System.out.println("O emprestimo sera finalizado no dia: " + e.getDataPrevistaDevolucao() + "\n");
+			}
+		}		
+		System.out.println("Empréstimos Finalizados");
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getDataDevolucao()!=null)
+			{
+				System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
+				System.out.println("Data de devolução prevista: " + e.getDataPrevistaDevolucao() + "\n");
 			}
 		}
+		
 	}
 
 	public void listarReservas() {
@@ -157,6 +169,32 @@ public abstract class Usuario {
 			System.out.println("Titulo: " + r.getTitulo() + "\n");
 			System.out.println("Data da reserva: " + r.getDataReserva() + "\n");
 		}
+	}
+	
+	public boolean devolverLivro(int codigoLivro) {
+		for (Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoLivro() == codigoLivro)
+			{
+				if(e.getDataDevolucao()==null)
+				{
+					e.setDataDevolucao(LocalDate.now());
+					e.getExemplar().disponibilizarExemplar();
+					return true;
+				}
+				else
+					return false;
+			}
+				
+		}
+		return false;
+	}
+	
+	public boolean temReserva() {
+		if(reservas.size()>0)
+			return true;
+		else
+			return false;
 	}
 
 }

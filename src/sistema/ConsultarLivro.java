@@ -2,6 +2,7 @@ package sistema;
 
 import sistema.Biblioteca;
 import sistema.Parametros;
+import usuario.Usuario;
 //import sistema.realizarConsultaLivro;
 import livro.Livro;
 

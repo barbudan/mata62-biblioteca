@@ -40,7 +40,6 @@ public class Controle {
 	}
 
 	public static void main(String[] args) {
-		// preencher com os dados de teste
-		// criar um loop
+				
 	}
 }
