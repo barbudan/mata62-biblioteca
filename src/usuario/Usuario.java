@@ -10,7 +10,7 @@ import livro.Livro;
 import livro.Reserva;
 import exemplar.Exemplar;
 
-public abstract class Usuario {
+public abstract class Usuario implements Observer{
 
 	private String nomeUsuario;
 	private int codigoUsuario;
@@ -206,6 +206,7 @@ public abstract class Usuario {
 		}
 	}
 	
+	public void update(Livro livro) {}
 	
 	public boolean temReserva() {
 		if(reservas.size()>0)
