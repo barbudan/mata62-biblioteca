@@ -13,7 +13,8 @@ public class Emprestado implements EstadoExemplar {
 	}
 	
 	public void reservarExemplar(Exemplar e) {
-		System.out.println("Este Exemplar não pode ser Reservado pois está Emprestado");
+		e.setEstado(new Reservado());
+		System.out.println("Exemplar Reservado com Sucesso");
 	}
 
 }

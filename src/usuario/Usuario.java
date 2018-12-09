@@ -44,6 +44,13 @@ public abstract class Usuario {
 		return numReservas;
 	}
 	
+	public Exemplar getExemplar(int codigoLivro) {
+		for(Emprestimo e : emprestimos)
+			if(e.getCodigoLivro() == codigoLivro)
+				return e.getExemplar();
+		return null;
+	}
+	
 	public Emprestimo getEmprestimo(int codigo) {
 		for (Emprestimo e : emprestimos) {
 			if (e.getCodigoLivro() == codigo) {
@@ -170,7 +177,8 @@ public abstract class Usuario {
 		}
 	}
 	
-	public boolean devolverLivro(int codigoLivro) {
+
+	public void devolveReservaExemplar(int codigoLivro) {
 		for (Emprestimo e : emprestimos)
 		{
 			if(e.getCodigoLivro() == codigoLivro)
@@ -178,16 +186,26 @@ public abstract class Usuario {
 				if(e.getDataDevolucao()==null)
 				{
 					e.setDataDevolucao(LocalDate.now());
-					e.getExemplar().disponibilizarExemplar();
-					return true;
+					e.getExemplar().reservarExemplar();			
 				}
-				else
-					return false;
-			}
-				
+			}	
 		}
-		return false;
 	}
+	
+	public void devolveDisponibilizaExemplar(int codigoLivro) {
+		for (Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoLivro() == codigoLivro)
+			{
+				if(e.getDataDevolucao()==null)
+				{
+					e.setDataDevolucao(LocalDate.now());
+					e.getExemplar().disponibilizarExemplar();			
+				}
+			}	
+		}
+	}
+	
 	
 	public boolean temReserva() {
 		if(reservas.size()>0)

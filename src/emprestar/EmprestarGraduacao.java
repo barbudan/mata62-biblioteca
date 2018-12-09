@@ -65,7 +65,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			codigoDoExemplar = exemplar.getCodigoExemplar();
 			Reserva r = usuario.getReserva(livro.getCodigo());
 			usuario.removerReserva(r);
-			r = livro.getReserva(usuario.getCodigo());
+			r = livro.getReserva(livro.getCodigo(), usuario.getCodigo());
 			livro.removerReserva(r);
 			
 			exemplar.emprestarExemplar();
@@ -73,7 +73,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();
-			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			System.out.println("Livro " + tituloLivro + " emprestado para o usuario " + nomeUsuario);
 			return;
 			
 		} else if(livro.estaDisponivel()) {
@@ -86,7 +86,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();
-			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			System.out.println("Livro " + tituloLivro + " emprestado para o usuario " + nomeUsuario);
 			return;
 		}
 		

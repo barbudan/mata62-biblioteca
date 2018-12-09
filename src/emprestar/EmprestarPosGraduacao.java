@@ -31,7 +31,7 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 				
 		// Verifica se o Usuário atingiu o Limite de Empréstimos
 		int numEmprestimos = usuario.getNumEmprestimos();
-		if (numEmprestimos == 4) {
+		if (numEmprestimos == 3) {
 			System.out.println("Nao foi possivel efetuar o emprestimo - Limite de emprestimos atingido");
 			return;
 		}		
@@ -65,7 +65,7 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 			codigoDoExemplar = exemplar.getCodigoExemplar();
 			Reserva r = usuario.getReserva(livro.getCodigo());
 			usuario.removerReserva(r);
-			r = livro.getReserva(usuario.getCodigo());
+			r = livro.getReserva(livro.getCodigo(), usuario.getCodigo());
 			livro.removerReserva(r);
 			
 			exemplar.emprestarExemplar();
@@ -73,7 +73,7 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();
-			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			System.out.println("Livro " + tituloLivro + " emprestado para o usuario " + nomeUsuario);
 			return;
 			
 		} else if(livro.estaDisponivel()) {
@@ -86,7 +86,7 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();
-			System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+			System.out.println("Livro " + tituloLivro + " emprestado para o usuario " + nomeUsuario);
 			return;
 		}
 		
@@ -94,5 +94,6 @@ public class EmprestarPosGraduacao implements EmprestarBehavior {
 		return;
 		
 	}
+
 
 }

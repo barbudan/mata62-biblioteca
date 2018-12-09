@@ -58,6 +58,15 @@ public class Livro implements Subject {
 		return reservas.size();
 	}
 	
+	public Emprestimo getEmprestimo(int codigoLivro) {
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoLivro() == codigoLivro)
+				return e;
+		}
+		return null;
+	}
+	
 	// MÉTODOS EM RESERVA //
 	
 	public void adicionarReserva(Reserva r) {
@@ -66,20 +75,28 @@ public class Livro implements Subject {
 			flagReserva=true;
 			notificarObservadores();
 		}
+		for(Exemplar exemplar : exemplares)
+		{
+			if(exemplar.getNomeEstadoExemplar().equals("Disponivel"))
+			{
+				exemplar.reservarExemplar();
+				break;
+			}
+		}
 	}
 	
 	public void removerReserva(Reserva r) {
 		int n = reservas.indexOf(r);
 		if (n >= 0) {
-			reservas.remove(r);
+			reservas.remove(n);
 			if(reservas.size()<=2)
 				flagReserva=false;
 		}
 	}
 
-	public Reserva getReserva(int codigoLivro) {
+	public Reserva getReserva(int codigoLivro, int codigoUsuario) {
 		for(Reserva r : reservas) {
-			if(r.getCodigoLivro() == codigoLivro) {
+			if(r.getCodigoLivro() == codigoLivro && r.getCodigoUsuario() == codigoUsuario) {
 				return r;
 			}
 		}
@@ -200,7 +217,7 @@ public class Livro implements Subject {
 			{
 				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar() +
 									"\t Status do Exemplar: " + exemplar.getNomeEstadoExemplar());
-				if(exemplar.getNomeEstadoExemplar() == "Emprestado")
+				if(exemplar.getNomeEstadoExemplar().equals("Emprestado"))
 				{
 					for(Emprestimo emp : emprestimos)
 					{
@@ -218,6 +235,12 @@ public class Livro implements Subject {
 		}
 	}
 	
+	public void removerEmprestimo(Emprestimo e) {
+		int index = emprestimos.indexOf(e);
+		if (index >= 0) {
+			emprestimos.remove(index);
+		}
+	}
 	
 	// PADRÃO OBSERVER //
 	
