@@ -5,9 +5,9 @@ public class Exemplar {
 	private String codigoExemplar;
 	private EstadoExemplar estado;
 
-	public Exemplar(String codigoExemplar, EstadoExemplar estadoInicial) {
+	public Exemplar(String codigoExemplar) {
 		this.codigoExemplar = codigoExemplar;
-		this.estado = estadoInicial;
+		this.estado = new Disponivel();
 	}
 
 	public String getCodigoExemplar() {
