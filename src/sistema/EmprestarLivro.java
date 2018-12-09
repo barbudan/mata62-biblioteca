@@ -11,7 +11,6 @@ public class EmprestarLivro implements Comando {
 	@Override
 	public void executar(Parametros p) {
 		EmprestarLivro.emprestar(p);
-
 	}
 
 	public static void emprestar(Parametros p) {
@@ -24,13 +23,12 @@ public class EmprestarLivro implements Comando {
 		Livro livro = b.getLivro(codigoLivro);
 		Usuario usuario = b.getUsuario(codigoUsuario);
 
-		if (livro == null || usuario == null) {
-			System.out.println("Livro ou usuário não encontrado.");
+		if (livro == null) {
+			System.out.println("Não há exemplar para este livro.");
 			return;
 		}
 
-		usuario.fazerEmprestimo(usuario, livro);
-		System.out.println("Emprestimo do livro " + livro.getTitulo() + " realizado para o Usuario " + usuario.getNome());
+		usuario.fazerEmprestimo(usuario, livro);		
 
 	}
 }

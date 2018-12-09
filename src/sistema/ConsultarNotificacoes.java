@@ -19,7 +19,7 @@ public class ConsultarNotificacoes implements Comando {
 		
 		Usuario usu = b.getUsuario(codigoUsuario);
 		
-		System.out.println("Professor " + usu.getNome() + " tem " + ((Professor) usu).getNotificacoes());	
+		System.out.println("Professor " + usu.getNome() + " tem " + ((Professor) usu).getNotificacoes() + " notificacoes");	
 		
 	}
 

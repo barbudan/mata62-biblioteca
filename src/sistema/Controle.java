@@ -100,6 +100,7 @@ public class Controle {
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Seja bem-vindo ao Sistema de Bibliotecas");
+		
 		while(true)
 		{
 			lerEntrada(input.nextLine());

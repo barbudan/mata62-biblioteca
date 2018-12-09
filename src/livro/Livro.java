@@ -58,7 +58,6 @@ public class Livro implements Subject {
 		return reservas.size();
 	}
 	
-	
 	// MÉTODOS EM RESERVA //
 	
 	public void adicionarReserva(Reserva r) {
@@ -105,7 +104,7 @@ public class Livro implements Subject {
 	
 	public boolean estaDisponivel() {
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar() == "Disponivel") {
+			if (e.getNomeEstadoExemplar().equals("Disponivel")) {
 				return true;
 			}
 		}
@@ -114,7 +113,7 @@ public class Livro implements Subject {
 	
 	public boolean estaReservado() {
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar() == "Reservado") {
+			if (e.getNomeEstadoExemplar().equals("Reservado")) {
 				return true;
 			}
 		}
@@ -141,7 +140,7 @@ public class Livro implements Subject {
 
 	public Exemplar getExemplarDisponivel() {
 		for(Exemplar e : exemplares) {
-			if(e.getNomeEstadoExemplar() == "Disponivel") {
+			if(e.getNomeEstadoExemplar().equals("Disponivel")) {
 				return e;
 			}
 		}
@@ -150,7 +149,7 @@ public class Livro implements Subject {
 	
 	public Exemplar getExemplarReservado() {
 		for(Exemplar e : exemplares) {
-			if(e.getNomeEstadoExemplar() == "Reservado") {
+			if(e.getNomeEstadoExemplar().equals("Reservado")) {
 				return e;
 			}
 		}
@@ -160,7 +159,7 @@ public class Livro implements Subject {
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar() == "Disponivel") {
+			if (e.getNomeEstadoExemplar().equals("Disponivel")) {			
 				exemplaresDisponiveis++;
 			}
 		}
@@ -170,7 +169,7 @@ public class Livro implements Subject {
 	public int getNumExemplaresReservados() {
 		int exemplaresReservados = 0;
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar() == "Reservado") {
+			if (e.getNomeEstadoExemplar().equals("Reservado")) {
 				exemplaresReservados++;
 			}
 		}
@@ -187,9 +186,9 @@ public class Livro implements Subject {
 	}
 	
 	public void listarUsuariosComReservas() {
+		System.out.println("RESERVAS");
 		for(Reserva r : reservas)
-		{
-			System.out.println("RESERVAS");
+		{			
 			System.out.println("Nome do Usuario: " + r.getNomeUsuario());
 		}
 	}
@@ -199,8 +198,8 @@ public class Livro implements Subject {
 		{
 			for(Exemplar exemplar : exemplares)
 			{
-				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar());
-				System.out.println("Status do Exemplar: " + exemplar.getNomeEstadoExemplar());
+				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar() +
+									"\t Status do Exemplar: " + exemplar.getNomeEstadoExemplar());
 				if(exemplar.getNomeEstadoExemplar() == "Emprestado")
 				{
 					for(Emprestimo emp : emprestimos)

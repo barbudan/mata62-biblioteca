@@ -33,7 +33,8 @@ public class Biblioteca {
 	public Livro getLivro(int codigo) {
 		for (Livro l : listaDeLivros) {
 			if (l.getCodigo() == codigo) {
-				return l;
+				if(l.existeExemplar())
+					return l;
 			}
 		}
 		return null;

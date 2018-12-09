@@ -138,36 +138,35 @@ public abstract class Usuario {
 
 	// falta testar o nome do usuário
 	public void listarEmprestimos() {
-		System.out.println("Emprestimos do usuario " + this.getNome() + "/n");
-		
+
 		System.out.println("Empréstimos em Curso");
 		for(Emprestimo e : emprestimos)
 		{
 			if(e.getDataDevolucao()==null)
 			{
-				System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
-				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
-				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao() + "\n");
+				System.out.println("Titulo: " + e.getLivro().getTitulo());
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
+				System.out.println("Data de devolução prevista: " + e.getDataPrevistaDevolucao());
 			}
-		}		
+		}
+		
 		System.out.println("Empréstimos Finalizados");
 		for(Emprestimo e : emprestimos)
 		{
 			if(e.getDataDevolucao()!=null)
 			{
-				System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
-				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
-				System.out.println("Data de devolução prevista: " + e.getDataPrevistaDevolucao() + "\n");
+				System.out.println("Titulo: " + e.getLivro().getTitulo());
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
+				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao());			
 			}
 		}
 		
 	}
 
 	public void listarReservas() {
-		System.out.println("Reservas do usuario " + this.getNome() + "\n");
 		for (Reserva r : reservas) {
-			System.out.println("Titulo: " + r.getTitulo() + "\n");
-			System.out.println("Data da reserva: " + r.getDataReserva() + "\n");
+			System.out.println("Titulo: " + r.getTitulo());
+			System.out.println("Data da reserva: " + r.getDataReserva());
 		}
 	}
 	

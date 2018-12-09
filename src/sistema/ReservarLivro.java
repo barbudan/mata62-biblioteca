@@ -21,11 +21,27 @@ public class ReservarLivro implements Comando {
 		
 		if(usu.getNumReservas()<3)
 		{
-			Reserva r = new Reserva(livro.getTitulo(), codigoLivro, usu.getNome(), codigoUsuario);
-			livro.adicionarReserva(r);
-			usu.adicionarReserva(r);
-			System.out.println("Reserva do livro " + livro.getTitulo() + " efetuada para o Usuario " + usu.getNome());
-			return;
+			boolean achouReserva = false;
+			for(Reserva r : usu.reservas)
+			{
+				if(r.getCodigoLivro() == codigoLivro)
+				{
+					achouReserva = true;
+					break;
+				}
+			}
+			if(!achouReserva)
+			{	
+				Reserva r = new Reserva(livro.getTitulo(), codigoLivro, usu.getNome(), codigoUsuario);
+				livro.adicionarReserva(r);
+				usu.adicionarReserva(r);
+				System.out.println("Reserva do livro " + livro.getTitulo() + " efetuada para o Usuario " + usu.getNome());
+				return;
+			}
+			else
+			{
+				System.out.println("Reserva não pôde ser efetivada. Usuário já reservou um Exemplar deste Livro");
+			}
 		}
 		else
 			System.out.println("Reserva não pôde ser efetivada. Usuário já atingiu o limite de reservas");		

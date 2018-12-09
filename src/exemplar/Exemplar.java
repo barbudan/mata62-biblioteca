@@ -15,7 +15,8 @@ public class Exemplar {
 	}
 
 	public String getNomeEstadoExemplar() {
-		return estado.getClass().getName();
+		String classeNome = String.valueOf(estado.getClass());
+		return classeNome.substring(classeNome.indexOf('.')+1);
 	}
 
 	public void setEstado(EstadoExemplar novoEstado) {

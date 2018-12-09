@@ -25,12 +25,12 @@ public class ConsultarLivro implements Comando {
 			System.out.println("Livro nao encontrado");
 			return;
 		} else {
-			System.out.println(livro.getTitulo() + "\n");
-			System.out.println("Quantidade de reservas: " + livro.getQuantidadeReservas() + "\n");
+			System.out.println("Nome do Livro: " + livro.getTitulo());
+			System.out.println("Quantidade de reservas: " + livro.getQuantidadeReservas());
 			if (livro.getQuantidadeReservas() > 0) {
 				livro.listarUsuariosComReservas();
 			}
-			System.out.println("EXEMPLARES \n");
+			System.out.println("EXEMPLARES");
 			livro.listarExemplares();
 		}
 	}

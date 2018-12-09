@@ -15,7 +15,9 @@ public class ConsultarUsuario implements Comando {
 		
 		Usuario usuario = b.getUsuario(codigoUsuario);
 		
+		System.out.println("Usuario: " + usuario.getNome());
 		usuario.listarEmprestimos();
+		System.out.println("Reservas:");
 		usuario.listarReservas();
 		
 		
