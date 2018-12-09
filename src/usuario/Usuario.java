@@ -95,7 +95,7 @@ public abstract class Usuario {
 
 	public boolean livroEstaComUsuario(int codigo) {
 		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo) {
+			if (e.getCodigoLivro() == codigo && e.getNomeEstadoExemplar().equals("Emprestado")) {
 				return true;
 			}
 		}

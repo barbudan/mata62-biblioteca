@@ -112,9 +112,7 @@ public class Livro implements Subject {
 	
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
-		if (emprestimos.size() >= 2) {
-			notificarObservadores();
-		}
+		
 	}
 	
 	// MÉTODOS EM EXEMPLAR //
@@ -213,6 +211,7 @@ public class Livro implements Subject {
 	public void listarExemplares() {
 		if(existeExemplar())
 		{
+			System.out.println("ahoy");
 			for(Exemplar exemplar : exemplares)
 			{
 				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar() +
@@ -221,6 +220,9 @@ public class Livro implements Subject {
 				{
 					for(Emprestimo emp : emprestimos)
 					{
+						System.out.println("ahoy2");
+						System.out.println(emp.getCodigoExemplar());
+						System.out.println(exemplar.getCodigoExemplar());
 						if(emp.getCodigoExemplar() == exemplar.getCodigoExemplar())
 						{
 							System.out.println("O exemplar está emprestado para o Usuario " + emp.getNomeUsuario());

@@ -23,8 +23,6 @@ public class DevolverLivro implements Comando {
 		{
 			Exemplar e = usu.getExemplar(codigoLivro);
 			System.out.println("Livro " + livro.getTitulo() + " devolvido pelo Usuario " + usu.getNome());
-			System.out.println(livro.getNumReservas());
-			System.out.println(livro.getNumExemplaresDisponiveis());
 			e.disponibilizarExemplar();
 			if(livro.getNumReservas()!=livro.getNumExemplaresReservados())
 				e.reservarExemplar();
