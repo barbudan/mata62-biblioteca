@@ -31,7 +31,13 @@ public class EmprestarProfessor implements EmprestarBehavior {
 			return;
 		}
 		
-		Exemplar exemplar = livro.getExemplarDisponivel();
+		Exemplar exemplar = null;
+		
+		if(livro.estaDisponivel())
+			exemplar = livro.getExemplarDisponivel();
+		else if(livro.estaReservado())
+			exemplar = livro.getExemplarReservado();
+		
 		String codigoDoExemplar = exemplar.getCodigoExemplar();
 		
 		// Adiciona o empréstimo
@@ -40,7 +46,7 @@ public class EmprestarProfessor implements EmprestarBehavior {
 		usuario.addEmprestimo(e);
 		livro.addEmprestimo(e);
 		usuario.addNumEmprestimos();
-		System.out.println("Livro " + tituloLivro + "emprestado para o usuario " + nomeUsuario);
+		System.out.println("Livro " + tituloLivro + " emprestado para o usuario " + nomeUsuario);
 
 	}
 

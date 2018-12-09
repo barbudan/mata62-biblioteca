@@ -27,6 +27,8 @@ public class DevolverLivro implements Comando {
 			if(livro.getNumReservas()!=livro.getNumExemplaresReservados())
 				e.reservarExemplar();
 			
+			usu.devolveReservaExemplar(codigoLivro);
+			usu.subNumEmprestimos();
 			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
 		}	
 		else
