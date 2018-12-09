@@ -3,7 +3,11 @@ package sistema;
 public class ConsultarUsuario implements Comando {
 	@Override
 	public void executar(Parametros p) {
-		// TODO Auto-generated method stub
+		ConsultarUsuario.consultar(p);		
+	}
+	
+	public static void consultar(Parametros p) {
+		
 		
 	}
 

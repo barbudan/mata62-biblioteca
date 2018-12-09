@@ -15,7 +15,6 @@ public abstract class Usuario {
 	private String nomeUsuario;
 	private int codigoUsuario;
 	private int numReservas = 0;
-	private int notificacoes = 0;
 	private int numEmprestimos = 0;
 	EmprestarBehavior emprestimoBehavior;
 
@@ -37,14 +36,14 @@ public abstract class Usuario {
 		return this.nomeUsuario;
 	}
 
-	public int getNotificacoes() {
-		return notificacoes;
-	}
-
 	public int getNumEmprestimos() {
 		return numEmprestimos;
 	}
 
+	public int getNumReservas() {
+		return numReservas;
+	}
+	
 	public Emprestimo getEmprestimo(int codigo) {
 		for (Emprestimo e : emprestimos) {
 			if (e.getCodigoLivro() == codigo) {
@@ -96,6 +95,14 @@ public abstract class Usuario {
 		return false;
 	}
 
+	public boolean adicionarReserva(Reserva r) {
+		if(numReservas<3)
+		{
+			reservas.add(r);
+			return true;
+		}
+		return false;	
+	}
 	// verifica, através do código do livro, se o usuário já tem reserva do livro
 	public boolean verificarReserva(int codigo) {
 		for (Reserva r : reservas) {

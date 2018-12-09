@@ -8,11 +8,11 @@ import livro.Livro;
 public class ConsultarLivro implements Comando {
 	@Override
 	public void executar(Parametros p) {
-		ConsultarLivro.Consultar(p);
+		ConsultarLivro.consultar(p);
 
 	}
 
-	public static void Consultar(Parametros parametros) {
+	public static void consultar(Parametros parametros) {
 
 		int codigoLivro = parametros.getP1();
 

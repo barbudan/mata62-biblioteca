@@ -10,11 +10,11 @@ public class EmprestarLivro implements Comando {
 
 	@Override
 	public void executar(Parametros p) {
-		EmprestarLivro.Emprestar(p);
+		EmprestarLivro.emprestar(p);
 
 	}
 
-	public static void Emprestar(Parametros p) {
+	public static void emprestar(Parametros p) {
 
 		int codigoUsuario = p.getP1();
 		int codigoLivro = p.getP2();
@@ -30,6 +30,7 @@ public class EmprestarLivro implements Comando {
 		}
 
 		usuario.fazerEmprestimo(usuario, livro);
+		System.out.println("Emprestimo do livro " + livro.getTitulo() + " realizado para o Usuario " + usuario.getNome());
 
 	}
 }
