@@ -27,7 +27,7 @@ public class DevolverLivro implements Comando {
 			if(livro.getNumReservas()!=livro.getNumExemplaresReservados())
 				e.reservarExemplar();
 			
-			livro.removerEmprestimo(livro.getEmprestimo(codigoLivro));
+			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
 		}	
 		else
 			System.out.println("Devolução não concluida. Livro " + livro.getTitulo() + " não está em posse do Usuario " + usu.getNome());

@@ -211,7 +211,6 @@ public class Livro implements Subject {
 	public void listarExemplares() {
 		if(existeExemplar())
 		{
-			System.out.println("ahoy");
 			for(Exemplar exemplar : exemplares)
 			{
 				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar() +
@@ -220,9 +219,6 @@ public class Livro implements Subject {
 				{
 					for(Emprestimo emp : emprestimos)
 					{
-						System.out.println("ahoy2");
-						System.out.println(emp.getCodigoExemplar());
-						System.out.println(exemplar.getCodigoExemplar());
 						if(emp.getCodigoExemplar() == exemplar.getCodigoExemplar())
 						{
 							System.out.println("O exemplar está emprestado para o Usuario " + emp.getNomeUsuario());
@@ -242,6 +238,22 @@ public class Livro implements Subject {
 		if (index >= 0) {
 			emprestimos.remove(index);
 		}
+	}
+	
+	public void removerEmprestimoPorExemplar(String codigoExemplar) {
+		int index = indiceEmprestimoPorExemplar(codigoExemplar);
+		emprestimos.remove(index);
+	}
+	
+	public int indiceEmprestimoPorExemplar(String codigoExemplar) {
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoExemplar() == codigoExemplar) {
+				int index = emprestimos.indexOf(e);
+				return index;
+			}
+		}
+		return 0;
 	}
 	
 	// PADRÃO OBSERVER //
