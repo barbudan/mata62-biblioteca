@@ -10,7 +10,7 @@ import exemplar.*;
 import livro.*;
 
 public class Controle {
-	public static Map<String, Comando> mapaComandos = new HashMap<String, Comando>();
+	private static Map<String, Comando> mapaComandos = new HashMap<String, Comando>();
 
 	static {
 		mapaComandos.put("emp", new EmprestarLivro());
@@ -23,7 +23,7 @@ public class Controle {
 		mapaComandos.put("sai", new Sair());
 	}
 
-	public static void lerEntrada(String entrada) {
+	private static void lerEntrada(String entrada) {
 		Parametros argumentos;
 		String[] argumentosDivididos;
 
