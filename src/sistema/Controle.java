@@ -10,9 +10,14 @@ import exemplar.*;
 import livro.*;
 
 public class Controle {
-	public static Map<String, Comando> mapaComandos = new HashMap<String, Comando>();
+	private Map<String, Comando> mapaComandos = new HashMap<String, Comando>();
 
-	static {
+	private Controle() {
+		iniciaComandos();
+	}
+	
+	private void iniciaComandos() {
+		
 		mapaComandos.put("emp", new EmprestarLivro());
 		mapaComandos.put("dev", new DevolverLivro());
 		mapaComandos.put("res", new ReservarLivro());
@@ -21,9 +26,10 @@ public class Controle {
 		mapaComandos.put("usu", new ConsultarUsuario());
 		mapaComandos.put("ntf", new ConsultarNotificacoes());
 		mapaComandos.put("sai", new Sair());
+		
 	}
-
-	public static void lerEntrada(String entrada) {
+	
+	private void lerEntrada(String entrada) {
 		Parametros argumentos;
 		String[] argumentosDivididos;
 
@@ -97,13 +103,14 @@ public class Controle {
 		b.addUsuario(user3);
 		b.addUsuario(user4);
 		
+		Controle control = new Controle();
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Seja bem-vindo ao Sistema de Bibliotecas");
 		
 		while(true)
 		{
-			lerEntrada(input.nextLine());
+			control.lerEntrada(input.nextLine());
 		}
 		
 		
