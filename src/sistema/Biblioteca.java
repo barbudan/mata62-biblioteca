@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import exemplar.Exemplar;
 import livro.Livro;
 import livro.Reserva;
+import usuario.Observer;
 import usuario.Professor;
 import usuario.Usuario;
 
@@ -33,7 +34,7 @@ public class Biblioteca {
 	}
 
 	// get livro através do código
-	public Livro getLivro(int codigo) {
+	private Livro getLivro(int codigo) {
 		for (Livro l : listaDeLivros) {
 			if (l.getCodigo() == codigo) {
 				if (l.existeExemplar())
@@ -44,7 +45,7 @@ public class Biblioteca {
 	}
 
 	// get usuario através do código
-	public Usuario getUsuario(int codigo) {
+	private Usuario getUsuario(int codigo) {
 		for (Usuario u : listaDeUsuarios) {
 			if (u.getCodigo() == codigo) {
 				return u;
@@ -53,6 +54,17 @@ public class Biblioteca {
 		return null;
 	}
 
+	public void addObserver(int codigoUsuario, int codigoLivro) {
+		Biblioteca b = Biblioteca.getInstancia();
+		
+		Usuario usu = b.getUsuario(codigoUsuario);
+		Livro livro = b.getLivro(codigoLivro);
+		
+		livro.registraObservador((Observer) usu);
+		
+		System.out.println("Professor " + usu.getNome() + " está agora observando o livro " + livro.getTitulo());
+	}
+	
 	public void consultarLivro(int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
 		Livro livro = b.getLivro(codigoLivro);
