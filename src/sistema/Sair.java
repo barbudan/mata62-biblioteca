@@ -9,9 +9,7 @@ public class Sair implements Comando {
 	
 	public static void finalizarPrograma() {
 		
-		System.out.println("Encerrando o Sistema de Biblioteca...");
-		
-		System.exit(0);
+		Biblioteca.sair();
 		
 	}
 

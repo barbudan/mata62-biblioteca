@@ -13,25 +13,6 @@ public class DevolverLivro implements Comando {
 	public static void devolver(Parametros p) {
 		int codigoUsuario = p.getP1();
 		int codigoLivro = p.getP2();
-	
-		Biblioteca b = Biblioteca.getInstancia();
-		
-		Usuario usu = b.getUsuario(codigoUsuario);
-		Livro livro = b.getLivro(codigoLivro);
-		
-		if(usu.livroEstaComUsuario(codigoLivro))
-		{
-			Exemplar e = usu.getExemplar(codigoLivro);
-			System.out.println("Livro " + livro.getTitulo() + " devolvido pelo Usuario " + usu.getNome());
-			e.disponibilizarExemplar();
-			if(livro.getNumReservas()!=livro.getNumExemplaresReservados())
-				e.reservarExemplar();
-			
-			usu.devolveReservaExemplar(codigoLivro);
-			usu.subNumEmprestimos();
-			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
-		}	
-		else
-			System.out.println("Devolução não concluida. Livro " + livro.getTitulo() + " não está em posse do Usuario " + usu.getNome());
+		Biblioteca.devolverLivro(codigoUsuario, codigoLivro);
 	}
 }
