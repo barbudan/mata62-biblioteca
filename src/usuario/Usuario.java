@@ -16,6 +16,7 @@ public abstract class Usuario {
 	private int codigoUsuario;
 	private int numReservas = 0;
 	private int numEmprestimos = 0;
+	private int totalDiasEmprestimo;
 	EmprestarBehavior emprestimoBehavior;
 
 	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
@@ -27,7 +28,7 @@ public abstract class Usuario {
 		this.nomeUsuario = nome;
 	}
 
-	// GETTERS //
+	// GETTERS && SETTERS //
 	public int getCodigo() {
 		return codigoUsuario;
 	}
@@ -69,6 +70,14 @@ public abstract class Usuario {
 		return null;
 	}
 
+	public int getTotalDiasEmprestimo() {
+		return this.totalDiasEmprestimo;
+	}
+	
+	public void setTotalDiasEmprestimo(int dias) {
+		this.totalDiasEmprestimo = dias;
+	}
+	
 	// MÉTODOS AUXILIARES //
 	public void addNumReservas() {
 		this.numReservas++;

@@ -7,7 +7,7 @@ import livro.Livro;
 import livro.Reserva;
 import usuario.Usuario;
 
-public class EmprestarGraduacao implements EmprestarBehavior {
+public class EmprestarAluno implements EmprestarBehavior {
 
 	public void emprestar(Usuario usuario, Livro livro) {
 		String nomeUsuario = usuario.getNome();
@@ -58,6 +58,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 		
 		Exemplar exemplar;
 		String codigoDoExemplar;
+		int totalDiasEmprestimo = usuario.getTotalDiasEmprestimo();
 		
 		if(usuarioFezReserva && livro.estaReservado()) {
 			
@@ -69,7 +70,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			livro.removerReserva(r);
 			
 			exemplar.emprestarExemplar();
-			Emprestimo e = new Emprestimo(usuario, livro, exemplar, 3, codigoDoExemplar);
+			Emprestimo e = new Emprestimo(usuario, livro, exemplar, totalDiasEmprestimo, codigoDoExemplar);
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();
@@ -82,7 +83,7 @@ public class EmprestarGraduacao implements EmprestarBehavior {
 			codigoDoExemplar = exemplar.getCodigoExemplar();
 			
 			exemplar.emprestarExemplar();
-			Emprestimo e = new Emprestimo(usuario, livro, exemplar, 3, codigoDoExemplar);
+			Emprestimo e = new Emprestimo(usuario, livro, exemplar, totalDiasEmprestimo, codigoDoExemplar);
 			usuario.addEmprestimo(e);
 			livro.addEmprestimo(e);
 			usuario.addNumEmprestimos();

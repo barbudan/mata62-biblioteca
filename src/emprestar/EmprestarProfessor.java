@@ -39,10 +39,11 @@ public class EmprestarProfessor implements EmprestarBehavior {
 			exemplar = livro.getExemplarReservado();
 		
 		String codigoDoExemplar = exemplar.getCodigoExemplar();
+		int totalDiasEmprestimo = usuario.getTotalDiasEmprestimo();
 		
 		// Adiciona o empréstimo
 		exemplar.emprestarExemplar();
-		Emprestimo e = new Emprestimo(usuario, livro, exemplar, 7, codigoDoExemplar);
+		Emprestimo e = new Emprestimo(usuario, livro, exemplar, totalDiasEmprestimo , codigoDoExemplar);
 		usuario.addEmprestimo(e);
 		livro.addEmprestimo(e);
 		usuario.addNumEmprestimos();
