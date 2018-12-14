@@ -10,8 +10,8 @@ public class ConsultarUsuario implements Comando {
 	
 	public static void consultar(Parametros p) {
 		int codigoUsuario = p.getP1();
-		
-		Biblioteca.consultarUsuario(codigoUsuario);
+		Biblioteca b = Biblioteca.getInstancia();
+		b.consultarUsuario(codigoUsuario);
 		
 	}
 

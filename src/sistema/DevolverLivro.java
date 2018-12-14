@@ -13,6 +13,7 @@ public class DevolverLivro implements Comando {
 	public static void devolver(Parametros p) {
 		int codigoUsuario = p.getP1();
 		int codigoLivro = p.getP2();
-		Biblioteca.devolverLivro(codigoUsuario, codigoLivro);
+		Biblioteca b = Biblioteca.getInstancia();
+		b.devolverLivro(codigoUsuario, codigoLivro);
 	}
 }

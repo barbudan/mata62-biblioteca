@@ -13,7 +13,7 @@ public class ReservarLivro implements Comando {
 	public static void reservar(Parametros p) {
 		int codigoUsuario = p.getP1();
 		int codigoLivro = p.getP2();
-
-		Biblioteca.reservarLivro(codigoUsuario, codigoLivro);
+		Biblioteca b = Biblioteca.getInstancia();
+		b.reservarLivro(codigoUsuario, codigoLivro);
 	}
 }

@@ -15,6 +15,7 @@ public class ConsultarLivro implements Comando {
 
 	public static void consultar(Parametros parametros) {
 		int codigoLivro = parametros.getP1();
-		Biblioteca.consultarLivro(codigoLivro);
+		Biblioteca b = Biblioteca.getInstancia();
+		b.consultarLivro(codigoLivro);
 	}
 }

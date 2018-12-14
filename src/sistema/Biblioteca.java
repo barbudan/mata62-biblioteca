@@ -16,7 +16,6 @@ public class Biblioteca {
 
 	public ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
 	public ArrayList<Livro> listaDeLivros = new ArrayList<Livro>();
-	static Biblioteca b = Biblioteca.getInstancia();
 
 	public static Biblioteca getInstancia() {
 		if (instancia == null) {
@@ -54,7 +53,8 @@ public class Biblioteca {
 		return null;
 	}
 
-	public static void consultarLivro(int codigoLivro) {
+	public void consultarLivro(int codigoLivro) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Livro livro = b.getLivro(codigoLivro);
 
 		if (livro == null) {
@@ -71,7 +71,8 @@ public class Biblioteca {
 		}
 	}
 
-	public static void consultarNotificacoes(int codigoUsuario) {
+	public void consultarNotificacoes(int codigoUsuario) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Usuario usu = b.getUsuario(codigoUsuario);
 
 		System.out.println(
@@ -79,7 +80,8 @@ public class Biblioteca {
 
 	}
 
-	public static void consultarUsuario(int codigoUsuario) {
+	public void consultarUsuario(int codigoUsuario) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Usuario usuario = b.getUsuario(codigoUsuario);
 
 		System.out.println("Usuario: " + usuario.getNome());
@@ -88,7 +90,8 @@ public class Biblioteca {
 		usuario.listarReservas();
 	}
 
-	public static void devolverLivro(int codigoUsuario, int codigoLivro) {
+	public void devolverLivro(int codigoUsuario, int codigoLivro) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Usuario usu = b.getUsuario(codigoUsuario);
 		Livro livro = b.getLivro(codigoLivro);
 
@@ -107,7 +110,8 @@ public class Biblioteca {
 					+ usu.getNome());
 	}
 
-	public static void emprestarLivro(int codigoUsuario, int codigoLivro) {
+	public void emprestarLivro(int codigoUsuario, int codigoLivro) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Livro livro = b.getLivro(codigoLivro);
 		Usuario usuario = b.getUsuario(codigoUsuario);
 
@@ -119,7 +123,8 @@ public class Biblioteca {
 		usuario.fazerEmprestimo(usuario, livro);
 	}
 	
-	public static void reservarLivro(int codigoUsuario, int codigoLivro) {
+	public void reservarLivro(int codigoUsuario, int codigoLivro) {
+		Biblioteca b = Biblioteca.getInstancia();
 		Usuario usu = b.getUsuario(codigoUsuario);
 		Livro livro = b.getLivro(codigoLivro);
 		

@@ -17,8 +17,8 @@ public class EmprestarLivro implements Comando {
 
 		int codigoUsuario = p.getP1();
 		int codigoLivro = p.getP2();
-
-		Biblioteca.emprestarLivro(codigoUsuario, codigoLivro);	
+		Biblioteca b = Biblioteca.getInstancia();
+		b.emprestarLivro(codigoUsuario, codigoLivro);	
 
 	}
 }
