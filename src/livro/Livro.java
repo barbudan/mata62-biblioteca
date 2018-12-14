@@ -77,7 +77,7 @@ public class Livro implements Subject {
 		}
 		for(Exemplar exemplar : exemplares)
 		{
-			if(exemplar.getNomeEstadoExemplar().equals("Disponivel"))
+			if(exemplar.estaDisponivel())
 			{
 				exemplar.reservarExemplar();
 				break;
@@ -119,7 +119,7 @@ public class Livro implements Subject {
 	
 	public boolean estaDisponivel() {
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar().equals("Disponivel")) {
+			if (e.estaDisponivel()) {
 				return true;
 			}
 		}
@@ -128,7 +128,7 @@ public class Livro implements Subject {
 	
 	public boolean estaReservado() {
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar().equals("Reservado")) {
+			if (e.estaReservado()) {
 				return true;
 			}
 		}
@@ -155,7 +155,7 @@ public class Livro implements Subject {
 
 	public Exemplar getExemplarDisponivel() {
 		for(Exemplar e : exemplares) {
-			if(e.getNomeEstadoExemplar().equals("Disponivel")) {
+			if(e.estaDisponivel()) {
 				return e;
 			}
 		}
@@ -164,7 +164,7 @@ public class Livro implements Subject {
 	
 	public Exemplar getExemplarReservado() {
 		for(Exemplar e : exemplares) {
-			if(e.getNomeEstadoExemplar().equals("Reservado")) {
+			if(e.estaReservado()) {
 				return e;
 			}
 		}
@@ -174,7 +174,7 @@ public class Livro implements Subject {
 	public int getNumExemplaresDisponiveis() {
 		int exemplaresDisponiveis = 0;
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar().equals("Disponivel")) {			
+			if (e.estaDisponivel()) {			
 				exemplaresDisponiveis++;
 			}
 		}
@@ -184,7 +184,7 @@ public class Livro implements Subject {
 	public int getNumExemplaresReservados() {
 		int exemplaresReservados = 0;
 		for (Exemplar e : exemplares) {
-			if (e.getNomeEstadoExemplar().equals("Reservado")) {
+			if (e.estaReservado()) {
 				exemplaresReservados++;
 			}
 		}
@@ -215,7 +215,7 @@ public class Livro implements Subject {
 			{
 				System.out.println("Codigo do Exemplar: " + exemplar.getCodigoExemplar() +
 									"\t Status do Exemplar: " + exemplar.getNomeEstadoExemplar());
-				if(exemplar.getNomeEstadoExemplar().equals("Emprestado"))
+				if(exemplar.estaEmprestado())
 				{
 					for(Emprestimo emp : emprestimos)
 					{

@@ -16,4 +16,16 @@ public class Reservado implements EstadoExemplar {
 		System.out.println("Este Exemplar já está Reservado");
 	}
 
+	public boolean estaDisponivel() {
+		return false;
+	}
+	
+	public boolean estaReservado() {
+		return true;
+	}
+	
+	public boolean estaEmprestado() {
+		return false;
+	}
+	
 }
