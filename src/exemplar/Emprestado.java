@@ -17,4 +17,16 @@ public class Emprestado implements EstadoExemplar {
 		System.out.println("Exemplar Reservado com Sucesso");
 	}
 
+	public boolean estaDisponivel() {
+		return false;
+	}
+	
+	public boolean estaReservado() {
+		return false;
+	}
+	
+	public boolean estaEmprestado() {
+		return true;
+	}
+	
 }

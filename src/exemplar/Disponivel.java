@@ -15,5 +15,17 @@ public class Disponivel implements EstadoExemplar {
 		e.setEstado(new Reservado());
 		System.out.println("Exemplar reservado com sucesso");
 	}
+	
+	public boolean estaDisponivel() {
+		return true;
+	}
+	
+	public boolean estaReservado() {
+		return false;
+	}
+	
+	public boolean estaEmprestado() {
+		return false;
+	}
 
 }

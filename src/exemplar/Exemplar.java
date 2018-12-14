@@ -39,4 +39,21 @@ public class Exemplar {
 		estado.reservarExemplar(this);
 	}
 
+	public boolean estaDisponivel() {
+		if(estado.estaDisponivel())
+			return true;
+		return false;
+	}
+	
+	public boolean estaReservado() {
+		if(estado.estaReservado())
+			return true;
+		return false;
+	}
+	
+	public boolean estaEmprestado() {
+		if(estado.estaEmprestado())
+			return true;
+		return false;
+	}
 }
