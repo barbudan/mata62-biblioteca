@@ -1,9 +1,37 @@
 package sistema;
 
+import sistema.Biblioteca;
+import sistema.Parametros;
+import usuario.Usuario;
+//import sistema.realizarConsultaLivro;
+import livro.Livro;
+
 public class ConsultarLivro implements Comando {
 	@Override
 	public void executar(Parametros p) {
-		// TODO Auto-generated method stub
-		
+		ConsultarLivro.consultar(p);
+
+	}
+
+	public static void consultar(Parametros parametros) {
+
+		int codigoLivro = parametros.getP1();
+
+		Biblioteca b = Biblioteca.getInstancia();
+
+		Livro livro = b.getLivro(codigoLivro);
+
+		if (livro == null) {
+			System.out.println("Livro nao encontrado");
+			return;
+		} else {
+			System.out.println("Nome do Livro: " + livro.getTitulo());
+			System.out.println("Quantidade de reservas: " + livro.getQuantidadeReservas());
+			if (livro.getQuantidadeReservas() > 0) {
+				livro.listarUsuariosComReservas();
+			}
+			System.out.println("EXEMPLARES");
+			livro.listarExemplares();
+		}
 	}
 }

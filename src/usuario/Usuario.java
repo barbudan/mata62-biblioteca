@@ -8,14 +8,15 @@ import emprestar.EmprestarProfessor;
 import livro.Emprestimo;
 import livro.Livro;
 import livro.Reserva;
+import exemplar.Exemplar;
 
 public abstract class Usuario {
 
 	private String nomeUsuario;
 	private int codigoUsuario;
 	private int numReservas = 0;
-	private int notificacoes = 0;
 	private int numEmprestimos = 0;
+	private int totalDiasEmprestimo;
 	EmprestarBehavior emprestimoBehavior;
 
 	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
@@ -27,6 +28,7 @@ public abstract class Usuario {
 		this.nomeUsuario = nome;
 	}
 
+	// GETTERS && SETTERS //
 	public int getCodigo() {
 		return codigoUsuario;
 	}
@@ -35,14 +37,48 @@ public abstract class Usuario {
 		return this.nomeUsuario;
 	}
 
-	public int getNotificacoes() {
-		return notificacoes;
-	}
-
 	public int getNumEmprestimos() {
 		return numEmprestimos;
 	}
 
+	public int getNumReservas() {
+		return numReservas;
+	}
+	
+	public Exemplar getExemplar(int codigoLivro) {
+		for(Emprestimo e : emprestimos)
+			if(e.getCodigoLivro() == codigoLivro)
+				return e.getExemplar();
+		return null;
+	}
+	
+	public Emprestimo getEmprestimo(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo) {
+				return e;
+			}
+		}
+		return null;
+	}
+
+	public Reserva getReserva(int codigoLivro) {
+		for (Reserva r : reservas) {
+			if (r.getCodigoLivro() == codigoLivro) {
+				return r;
+			}
+		}
+		return null;
+	}
+
+	public int getTotalDiasEmprestimo() {
+		return this.totalDiasEmprestimo;
+	}
+	
+	public void setTotalDiasEmprestimo(int dias) {
+		this.totalDiasEmprestimo = dias;
+	}
+	
+	// MÉTODOS AUXILIARES //
 	public void addNumReservas() {
 		this.numReservas++;
 	}
@@ -59,24 +95,6 @@ public abstract class Usuario {
 		emprestimos.add(e);
 	}
 
-	public Emprestimo getEmprestimo(int codigo) {
-		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo) {
-				return e;
-			}
-		}
-		return null;
-	}
-
-	public boolean livroEstaComUsuario(int codigo) {
-		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public void removerEmprestimo(Emprestimo e) {
 		int index = emprestimos.indexOf(e);
 		if (index >= 0) {
@@ -84,6 +102,23 @@ public abstract class Usuario {
 		}
 	}
 
+	public boolean livroEstaComUsuario(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo && e.getNomeEstadoExemplar().equals("Emprestado")) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean adicionarReserva(Reserva r) {
+		if(numReservas<3)
+		{
+			reservas.add(r);
+			return true;
+		}
+		return false;	
+	}
 	// verifica, através do código do livro, se o usuário já tem reserva do livro
 	public boolean verificarReserva(int codigo) {
 		for (Reserva r : reservas) {
@@ -92,6 +127,17 @@ public abstract class Usuario {
 			}
 		}
 		return false;
+	}
+
+	public void removerReserva(Reserva r) {
+		int index = reservas.indexOf(r);
+		if (index >= 0) {
+			reservas.remove(index);
+		}
+	}
+
+	public void fazerEmprestimo(Usuario usuario, Livro livro) {
+		emprestimoBehavior.emprestar(usuario, livro);
 	}
 
 	public boolean verificarDebito() {
@@ -108,25 +154,67 @@ public abstract class Usuario {
 
 	// falta testar o nome do usuário
 	public void listarEmprestimos() {
-		System.out.println("Emprestimos do usuario " + this.getNome() + "/n");
-		for (Emprestimo e : emprestimos) {
-			System.out.println("Titulo: " + e.getLivro().getTitulo() + "\n");
-			System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo() + "\n");
-			System.out.println("Status: " + e.getEstadoLivro() + "\n");
-			if (e.getEstadoLivro() == "Finalizado") {
-				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao() + "\n");
-			} else {
-				System.out.println("O emprestimo sera finalizado no dia: " + e.getDataPrevistaDevolucao() + "\n");
+
+		System.out.println("Empréstimos em Curso");
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getDataDevolucao()==null)
+			{
+				System.out.println("Titulo: " + e.getLivro().getTitulo());
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
+				System.out.println("Data de devolução prevista: " + e.getDataPrevistaDevolucao());
 			}
 		}
+		
+		System.out.println("Empréstimos Finalizados");
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getDataDevolucao()!=null)
+			{
+				System.out.println("Titulo: " + e.getLivro().getTitulo());
+				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
+				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao());			
+			}
+		}
+		
 	}
 
 	public void listarReservas() {
-		System.out.println("Reservas do usuario " + this.getNome() + "\n");
 		for (Reserva r : reservas) {
-			System.out.println("Titulo: " + r.getTitulo() + "\n");
-			System.out.println("Data da reserva: " + r.getDataReserva() + "\n");
+			System.out.println("Titulo: " + r.getTitulo());
+			System.out.println("Data da reserva: " + r.getDataReserva());
 		}
+	}
+	
+
+	public void devolveReservaExemplar(int codigoLivro) {
+		for (Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoLivro() == codigoLivro && e.getDataDevolucao()==null)
+				e.setDataDevolucao(LocalDate.now());		
+		}
+	}
+	
+	public void devolveDisponibilizaExemplar(int codigoLivro) {
+		for (Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoLivro() == codigoLivro)
+			{
+				if(e.getDataDevolucao()==null)
+				{
+					e.setDataDevolucao(LocalDate.now());
+					e.getExemplar().disponibilizarExemplar();			
+				}
+			}	
+		}
+	}
+	
+	
+	public boolean temReserva() {
+		if(reservas.size()>0)
+			return true;
+		else
+			return false;
 	}
 
 }

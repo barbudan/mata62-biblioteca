@@ -9,6 +9,7 @@ public class Professor extends Usuario implements Observer {
 
 	public Professor(int codigo, String nome) {
 		super(codigo, nome);
+		setTotalDiasEmprestimo(7);
 		emprestimoBehavior = new EmprestarProfessor();
 	}
 
@@ -19,6 +20,5 @@ public class Professor extends Usuario implements Observer {
 	@Override
 	public void update(Livro livro) {
 		notificacoes++;
-
 	}
 }

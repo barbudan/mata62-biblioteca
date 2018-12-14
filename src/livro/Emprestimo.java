@@ -3,6 +3,7 @@ package livro;
 import java.time.LocalDate;
 
 import usuario.Usuario;
+import exemplar.Exemplar;
 
 public class Emprestimo {
 	Livro livro;
@@ -11,11 +12,13 @@ public class Emprestimo {
 	Usuario usuario;
 	LocalDate dataPrevistaDevolucao;
 	LocalDate dataDevolucao;
-	private String estadoLivro;
+	Exemplar exemplar;
+	private String estadoExemplar;
 
-	public Emprestimo(Usuario usuario, Livro livro, int numeroDias, String codigoExemplar) {
+	public Emprestimo(Usuario usuario, Livro livro, Exemplar exemplar, int numeroDias, String codigoExemplar) {
 		this.usuario = usuario;
 		this.livro = livro;
+		this.exemplar = exemplar;
 		this.dataEmprestimo = LocalDate.now();
 		this.codigoExemplar = codigoExemplar;
 		this.dataPrevistaDevolucao = LocalDate.now().plusDays(numeroDias);
@@ -53,11 +56,23 @@ public class Emprestimo {
 		return dataPrevistaDevolucao;
 	}
 
-	public void setEstadoLivro(String estado) {
-		this.estadoLivro = estado;
+	public void setEstadoExemplar(String estado) {
+		this.estadoExemplar = estado;
 	}
 
-	public String getEstadoLivro() {
-		return this.estadoLivro;
+	public String getEstadoExemplar() {
+		return this.estadoExemplar;
+	}
+	
+	public Exemplar getExemplar() {
+		return this.exemplar;
+	}
+	
+	public String getNomeUsuario() {
+		return usuario.getNome();
+	}
+	
+	public String getNomeEstadoExemplar() {
+		return exemplar.getNomeEstadoExemplar();
 	}
 }

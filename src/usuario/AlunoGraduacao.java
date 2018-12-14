@@ -1,11 +1,12 @@
 package usuario;
 
-import emprestar.EmprestarGraduacao;
+import emprestar.EmprestarAluno;
 
 public class AlunoGraduacao extends Usuario {
 
 	public AlunoGraduacao(int codigo, String nome) {
 		super(codigo, nome);
-		emprestimoBehavior = new EmprestarGraduacao();
+		setTotalDiasEmprestimo(3);
+		emprestimoBehavior = new EmprestarAluno();
 	}
 }

@@ -4,8 +4,15 @@ public class Sair implements Comando {
 
 	@Override
 	public void executar(Parametros p) {
-		// TODO Auto-generated method stub
-
+		Sair.finalizarPrograma();
+	}
+	
+	public static void finalizarPrograma() {
+		
+		System.out.println("Encerrando o Sistema de Biblioteca...");
+		
+		System.exit(0);
+		
 	}
 
 }
