@@ -17,6 +17,9 @@ public class Reserva {
 		this.codigoUsuario = codigoUsuario;
 	}
 
+	
+	// GETTERS && SETTERS //
+	
 	public LocalDate getDataReserva() {
 		return dataReserva;
 	}

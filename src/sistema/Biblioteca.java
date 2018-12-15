@@ -9,6 +9,8 @@ import usuario.Observer;
 import usuario.Professor;
 import usuario.Usuario;
 
+// PADRAO FAÇADE //
+
 public class Biblioteca {
 	
 	private Biblioteca() {};
@@ -24,8 +26,10 @@ public class Biblioteca {
 		}
 		return instancia;
 	}
+	
 
 	// GETTERS //
+	
 	private Livro getLivro(int codigo) {
 		for (Livro l : listaDeLivros) {
 			if (l.getCodigo() == codigo) {
@@ -46,7 +50,9 @@ public class Biblioteca {
 		return null;
 	}
 	
-	// MÉTODOS AUXILIARES //
+	
+	// METODOS AUXILIARES //
+	
 	public void addUsuario(Usuario u) {
 		listaDeUsuarios.add(u);
 	}
@@ -67,7 +73,9 @@ public class Biblioteca {
 		System.out.println("Professor " + usu.getNome() + " esta agora observando o livro " + livro.getTitulo());
 	}
 	
-	// OPERAÇÕES DA BIBLIOTECA //
+	
+	// OPERACOES DA BIBLIOTECA //
+	
 	public void consultarLivro(int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
 		Livro livro = b.getLivro(codigoLivro);

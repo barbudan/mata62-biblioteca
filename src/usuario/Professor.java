@@ -10,13 +10,17 @@ public class Professor extends Usuario implements Observer {
 	public Professor(int codigo, String nome) {
 		super(codigo, nome);
 		setMaximoDiasEmprestimo(7);
-		emprestimoBehavior = new EmprestarProfessor();
+		emprestimoBehavior = new EmprestarProfessor(); // PADRAO STRATEGY
 	}
 
+	// GETTERS && SETTERS //
+	
 	public int getNotificacoes() {
 		return notificacoes;
 	}
 
+	// METODOS PADRAO OBSERVER //
+	
 	@Override
 	public void update(Livro livro) {
 		notificacoes++;

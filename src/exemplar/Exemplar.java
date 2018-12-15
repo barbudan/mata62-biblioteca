@@ -10,6 +10,7 @@ public class Exemplar {
 		this.estado = new Disponivel();
 	}
 
+	// GETTERS && SETTERS //
 	public String getCodigoExemplar() {
 		return codigoExemplar;
 	}
@@ -19,13 +20,15 @@ public class Exemplar {
 		return classeNome.substring(classeNome.indexOf('.')+1);
 	}
 
-	public void setEstado(EstadoExemplar novoEstado) {
-		estado = novoEstado;
-	}
-
 	public EstadoExemplar getEstado() {
 		return this.estado;
 	}
+	
+	public void setEstado(EstadoExemplar novoEstado) {
+		estado = novoEstado;
+	}
+	
+	// METODOS PADRAO STATE //
 	
 	public void disponibilizarExemplar() {
 		estado.disponibilizarExemplar(this);
@@ -38,6 +41,8 @@ public class Exemplar {
 	public void reservarExemplar() {
 		estado.reservarExemplar(this);
 	}
+	
+	// METODOS VERIFICACAO //
 
 	public boolean estaDisponivel() {
 		if(estado.estaDisponivel())

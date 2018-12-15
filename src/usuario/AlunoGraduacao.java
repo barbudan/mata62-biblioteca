@@ -7,6 +7,6 @@ public class AlunoGraduacao extends Usuario {
 	public AlunoGraduacao(int codigo, String nome) {
 		super(codigo, nome);
 		setMaximoDiasEmprestimo(3);
-		emprestimoBehavior = new EmprestarAluno();
+		emprestimoBehavior = new EmprestarAluno(); // PADRAO STRATEGY
 	}
 }

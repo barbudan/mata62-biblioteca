@@ -27,7 +27,9 @@ public abstract class Usuario {
 		this.nomeUsuario = nome;
 	}
 
+	
 	// GETTERS && SETTERS //
+	
 	public int getCodigo() {
 		return codigoUsuario;
 	}
@@ -77,7 +79,9 @@ public abstract class Usuario {
 		return null;
 	}
 
-	// MÉTODOS AUXILIARES //
+	
+	// METODOS AUXILIARES //
+	
 	public void addNumReservas() {
 		this.numReservas++;
 	}
@@ -89,8 +93,10 @@ public abstract class Usuario {
 	public void subNumEmprestimos() {
 		this.numEmprestimos--;
 	}
+	
 
 	// METODOS EM EMPRESTIMO //
+	
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
 	}
@@ -120,7 +126,9 @@ public abstract class Usuario {
 		}
 	}
 
+	
 	// METODOS EM RESERVA //
+	
 	public boolean adicionarReserva(Reserva r) {
 		if (numReservas < 3) {
 			reservas.add(r);
@@ -136,7 +144,9 @@ public abstract class Usuario {
 		}
 	}
 
+	
 	// VERIFICAÇÕES //
+	
 	public boolean livroEstaComUsuario(int codigo) {
 		for (Emprestimo e : emprestimos) {
 			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao() != null) {
@@ -173,12 +183,16 @@ public abstract class Usuario {
 		return false;
 	}
 
-	// STRATEGY //
+	
+	// PADRAO STRATEGY //
+	
 	public void fazerEmprestimo(Usuario usuario, Livro livro) {
 		emprestimoBehavior.emprestar(usuario, livro);
 	}
 
+	
 	// PRINT //
+	
 	public void listarEmprestimos() {
 		System.out.println("Empréstimos em Curso");
 		for (Emprestimo e : emprestimos) {
