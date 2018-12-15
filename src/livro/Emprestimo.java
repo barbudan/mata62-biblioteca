@@ -75,4 +75,23 @@ public class Emprestimo {
 	public String getNomeEstadoExemplar() {
 		return exemplar.getNomeEstadoExemplar();
 	}
+
+	public boolean exemplarEstaDisponivel() {
+		if(exemplar.estaDisponivel())
+			return true;
+		return false;
+	}
+	
+	public boolean exemplarEstaReservado() {
+		if(exemplar.estaReservado())
+			return true;
+		return false;
+	}
+	
+	public boolean exemplarEstaEmprestado() {
+		if(exemplar.estaEmprestado())
+			return true;
+		return false;
+	}
+	
 }

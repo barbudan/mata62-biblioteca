@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import emprestar.EmprestarBehavior;
-import emprestar.EmprestarProfessor;
 import livro.Emprestimo;
 import livro.Livro;
 import livro.Reserva;
@@ -104,7 +103,7 @@ public abstract class Usuario {
 
 	public boolean livroEstaComUsuario(int codigo) {
 		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo && e.getExemplar().estaEmprestado() && e.getDataDevolucao()!=null) {
+			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao()!=null) {
 				return true;
 			}
 		}
@@ -209,12 +208,12 @@ public abstract class Usuario {
 		}
 	}
 	
-	
 	public boolean temReserva() {
 		if(reservas.size()>0)
 			return true;
 		else
 			return false;
 	}
+	
 
 }
