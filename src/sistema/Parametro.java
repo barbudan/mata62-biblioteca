@@ -1,20 +1,20 @@
 package sistema;
 
-public class Parametros {
+public class Parametro {
 	private int p1;
 	private int p2;
 
 	// construtor para o caso de nenhum parametro
-	public Parametros() {
+	public Parametro() {
 	}
 
 	// construtor para o caso de 1 parametro
-	public Parametros(int p1) {
+	public Parametro(int p1) {
 		this.p1 = p1;
 	}
 
 	// construtor para o caso de 2 parametros
-	public Parametros(int p1, int p2) {
+	public Parametro(int p1, int p2) {
 		this.p1 = p1;
 		this.p2 = p2;
 	}

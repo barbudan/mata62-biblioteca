@@ -1,16 +1,12 @@
 package sistema;
 
+
 public class Sair implements Comando {
 
 	@Override
-	public void executar(Parametros p) {
-		Sair.finalizarPrograma();
-	}
-	
-	public static void finalizarPrograma() {
-		
-		Biblioteca.sair();
-		
+	public void executar(Parametro p) {
+		Biblioteca b = Biblioteca.getInstancia();
+		b.sair();
 	}
 
 }

@@ -10,9 +10,9 @@ import usuario.Professor;
 import usuario.Usuario;
 
 public class Biblioteca {
-	private Biblioteca() {
-	};
-
+	
+	private Biblioteca() {};
+	
 	private static Biblioteca instancia;
 
 	public ArrayList<Usuario> listaDeUsuarios = new ArrayList<Usuario>();
@@ -168,11 +168,9 @@ public class Biblioteca {
 			System.out.println("Reserva não pôde ser efetivada. Usuário já atingiu o limite de reservas");		
 	}
 	
-	public static void sair() {
-		
-		System.out.println("Encerrando o Sistema de Biblioteca...");
-		
+	public void sair() {		
+		System.out.println("Encerrando o Sistema de Biblioteca...");		
 		System.exit(0);
-		
 	}
+	
 }

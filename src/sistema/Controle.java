@@ -3,9 +3,7 @@ package sistema;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
-import sistema.*;
 import usuario.*;
-import emprestar.*;
 import exemplar.*;
 import livro.*;
 
@@ -24,23 +22,23 @@ public class Controle {
 	}
 
 	private static void lerEntrada(String entrada) {
-		Parametros argumentos;
+		Parametro argumentos;
 		String[] argumentosDivididos;
 
 		argumentosDivididos = entrada.split(" ");
 		String command = argumentosDivididos[0];
 		// não tem nenhum parametro
 		if (argumentosDivididos.length == 1) {
-			argumentos = new Parametros();
+			argumentos = new Parametro();
 		} else if (argumentosDivididos.length == 2) {
 			// tem um parametro
 			int arg1 = Integer.parseInt(argumentosDivididos[1]);
-			argumentos = new Parametros(arg1);
+			argumentos = new Parametro(arg1);
 		} else {
 			// tem dois parametros
 			int arg1 = Integer.parseInt(argumentosDivididos[1]);
 			int arg2 = Integer.parseInt(argumentosDivididos[2]);
-			argumentos = new Parametros(arg1, arg2);
+			argumentos = new Parametro(arg1, arg2);
 		}
 		
 		mapaComandos.get(command).executar(argumentos);
@@ -101,11 +99,10 @@ public class Controle {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Seja bem-vindo ao Sistema de Bibliotecas");
 		
-		while(true)
-		{
+		while(true) {
 			lerEntrada(input.nextLine());
 		}
 		
-		
 	}
+	
 }

@@ -1,5 +1,5 @@
 package sistema;
 
 public interface Comando {
-	public void executar(Parametros p);
+	public void executar(Parametro p);
 }
