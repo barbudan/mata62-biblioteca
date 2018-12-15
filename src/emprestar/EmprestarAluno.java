@@ -11,11 +11,10 @@ public class EmprestarAluno implements EmprestarBehavior {
 	public void emprestar(Usuario usuario, Livro livro) {
 		String nomeUsuario = usuario.getNome();
 		String tituloLivro = livro.getTitulo();
-		
 		int codigoLivro = livro.getCodigo();
 
 		if(!livro.existeExemplar()){
-			System.out.println("Não foi possivel efetuar o emprestimo - Não existem exemplares para este livro");
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao existem exemplares para este livro");
 			return;
 		}
 		
@@ -51,7 +50,7 @@ public class EmprestarAluno implements EmprestarBehavior {
 
 		if(!livro.estaReservado() && !livro.estaDisponivel())
 		{
-			System.out.println("Não foi possivel efetuar o emprestimo - Não há Exemplares Disponíveis");
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao ha Exemplares Disponíveis");
 			return;
 		}
 		

@@ -25,15 +25,7 @@ public class Biblioteca {
 		return instancia;
 	}
 
-	public void addUsuario(Usuario u) {
-		listaDeUsuarios.add(u);
-	}
-
-	public void addLivro(Livro l) {
-		listaDeLivros.add(l);
-	}
-
-	// get livro através do código
+	// GETTERS //
 	private Livro getLivro(int codigo) {
 		for (Livro l : listaDeLivros) {
 			if (l.getCodigo() == codigo) {
@@ -44,7 +36,7 @@ public class Biblioteca {
 		return null;
 	}
 
-	// get usuario através do código
+	
 	private Usuario getUsuario(int codigo) {
 		for (Usuario u : listaDeUsuarios) {
 			if (u.getCodigo() == codigo) {
@@ -53,6 +45,16 @@ public class Biblioteca {
 		}
 		return null;
 	}
+	
+	// MÉTODOS AUXILIARES //
+	public void addUsuario(Usuario u) {
+		listaDeUsuarios.add(u);
+	}
+
+	public void addLivro(Livro l) {
+		listaDeLivros.add(l);
+	}
+
 
 	public void addObserver(int codigoUsuario, int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
@@ -62,9 +64,10 @@ public class Biblioteca {
 		
 		livro.registraObservador((Observer) usu);
 		
-		System.out.println("Professor " + usu.getNome() + " está agora observando o livro " + livro.getTitulo());
+		System.out.println("Professor " + usu.getNome() + " esta agora observando o livro " + livro.getTitulo());
 	}
 	
+	// OPERAÇÕES DA BIBLIOTECA //
 	public void consultarLivro(int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
 		Livro livro = b.getLivro(codigoLivro);
@@ -118,7 +121,7 @@ public class Biblioteca {
 			usu.subNumEmprestimos();
 			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
 		} else
-			System.out.println("Devolução não concluida. Livro " + livro.getTitulo() + " não está em posse do Usuario "
+			System.out.println("Devoluçao nao concluida. Livro " + livro.getTitulo() + " nao esta em posse do Usuario "
 					+ usu.getNome());
 	}
 
@@ -128,7 +131,7 @@ public class Biblioteca {
 		Usuario usuario = b.getUsuario(codigoUsuario);
 
 		if (livro == null) {
-			System.out.println("Não há exemplar para este livro.");
+			System.out.println("Nao ha exemplar para este livro.");
 			return;
 		}
 
@@ -161,11 +164,11 @@ public class Biblioteca {
 			}
 			else
 			{
-				System.out.println("Reserva não pôde ser efetivada. Usuário já reservou um Exemplar deste Livro");
+				System.out.println("Reserva não pode ser efetivada. Usuario ja reservou um Exemplar deste Livro");
 			}
 		}
 		else
-			System.out.println("Reserva não pôde ser efetivada. Usuário já atingiu o limite de reservas");		
+			System.out.println("Reserva nao pode ser efetivada. Usuario ja atingiu o limite de reservas");		
 	}
 	
 	public void sair() {		

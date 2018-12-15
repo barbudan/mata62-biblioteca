@@ -221,9 +221,9 @@ public class Livro implements Subject {
 					{
 						if(emp.getCodigoExemplar() == exemplar.getCodigoExemplar())
 						{
-							System.out.println("O exemplar está emprestado para o Usuario " + emp.getNomeUsuario());
+							System.out.println("O exemplar esta emprestado para o Usuario " + emp.getNomeUsuario());
 							System.out.println("Data do Empréstimo: " + emp.getDataEmprestimo());
-							System.out.println("Data Prevista de Devolução: " + emp.getDataPrevistaDevolucao());
+							System.out.println("Data Prevista de Devoluçao: " + emp.getDataPrevistaDevolucao());
 							break;
 						}
 					}

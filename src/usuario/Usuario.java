@@ -43,14 +43,22 @@ public abstract class Usuario {
 	public int getNumReservas() {
 		return numReservas;
 	}
-	
+
+	public int getMaximoDiasEmprestimo() {
+		return this.maximoDiasEmprestimo;
+	}
+
+	public void setMaximoDiasEmprestimo(int dias) {
+		this.maximoDiasEmprestimo = dias;
+	}
+
 	public Exemplar getExemplar(int codigoLivro) {
-		for(Emprestimo e : emprestimos)
-			if(e.getCodigoLivro() == codigoLivro)
+		for (Emprestimo e : emprestimos)
+			if (e.getCodigoLivro() == codigoLivro)
 				return e.getExemplar();
 		return null;
 	}
-	
+
 	public Emprestimo getEmprestimo(int codigo) {
 		for (Emprestimo e : emprestimos) {
 			if (e.getCodigoLivro() == codigo) {
@@ -69,14 +77,6 @@ public abstract class Usuario {
 		return null;
 	}
 
-	public int getMaximoDiasEmprestimo() {
-		return this.maximoDiasEmprestimo;
-	}
-	
-	public void setMaximoDiasEmprestimo(int dias) {
-		this.maximoDiasEmprestimo = dias;
-	}
-	
 	// MÉTODOS AUXILIARES //
 	public void addNumReservas() {
 		this.numReservas++;
@@ -90,6 +90,7 @@ public abstract class Usuario {
 		this.numEmprestimos--;
 	}
 
+	// METODOS EM EMPRESTIMO //
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
 	}
@@ -101,29 +102,29 @@ public abstract class Usuario {
 		}
 	}
 
-	public boolean livroEstaComUsuario(int codigo) {
+	public void devolveReservaExemplar(int codigoLivro) {
 		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao()!=null) {
-				return true;
-			}
+			if (e.getCodigoLivro() == codigoLivro && e.getDataDevolucao() == null)
+				e.setDataDevolucao(LocalDate.now());
 		}
-		return false;
 	}
 
+	public void devolveDisponibilizaExemplar(int codigoLivro) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigoLivro) {
+				if (e.getDataDevolucao() == null) {
+					e.setDataDevolucao(LocalDate.now());
+					e.getExemplar().disponibilizarExemplar();
+				}
+			}
+		}
+	}
+
+	// METODOS EM RESERVA //
 	public boolean adicionarReserva(Reserva r) {
-		if(numReservas<3)
-		{
+		if (numReservas < 3) {
 			reservas.add(r);
 			return true;
-		}
-		return false;	
-	}
-	// verifica, através do código do livro, se o usuário já tem reserva do livro
-	public boolean verificarReserva(int codigo) {
-		for (Reserva r : reservas) {
-			if (r.getCodigoLivro() == codigo) {
-				return true;
-			}
 		}
 		return false;
 	}
@@ -135,8 +136,30 @@ public abstract class Usuario {
 		}
 	}
 
-	public void fazerEmprestimo(Usuario usuario, Livro livro) {
-		emprestimoBehavior.emprestar(usuario, livro);
+	// VERIFICAÇÕES //
+	public boolean livroEstaComUsuario(int codigo) {
+		for (Emprestimo e : emprestimos) {
+			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao() != null) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean temReserva() {
+		if (reservas.size() > 0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean verificarReserva(int codigo) {
+		for (Reserva r : reservas) {
+			if (r.getCodigoLivro() == codigo) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean verificarDebito() {
@@ -148,34 +171,32 @@ public abstract class Usuario {
 			}
 		}
 		return false;
-
 	}
 
-	// falta testar o nome do usuário
-	public void listarEmprestimos() {
+	// STRATEGY //
+	public void fazerEmprestimo(Usuario usuario, Livro livro) {
+		emprestimoBehavior.emprestar(usuario, livro);
+	}
 
+	// PRINT //
+	public void listarEmprestimos() {
 		System.out.println("Empréstimos em Curso");
-		for(Emprestimo e : emprestimos)
-		{
-			if(e.getDataDevolucao()==null)
-			{
+		for (Emprestimo e : emprestimos) {
+			if (e.getDataDevolucao() == null) {
 				System.out.println("Titulo: " + e.getLivro().getTitulo());
 				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
 				System.out.println("Data de devolução prevista: " + e.getDataPrevistaDevolucao());
 			}
 		}
-		
 		System.out.println("Empréstimos Finalizados");
-		for(Emprestimo e : emprestimos)
-		{
-			if(e.getDataDevolucao()!=null)
-			{
+		for (Emprestimo e : emprestimos) {
+			if (e.getDataDevolucao() != null) {
 				System.out.println("Titulo: " + e.getLivro().getTitulo());
 				System.out.println("Data de inicio do emprestimo: " + e.getDataEmprestimo());
-				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao());			
+				System.out.println("Data de finalizacao do emprestimo: " + e.getDataDevolucao());
 			}
 		}
-		
+
 	}
 
 	public void listarReservas() {
@@ -184,36 +205,5 @@ public abstract class Usuario {
 			System.out.println("Data da reserva: " + r.getDataReserva());
 		}
 	}
-	
-
-	public void devolveReservaExemplar(int codigoLivro) {
-		for (Emprestimo e : emprestimos)
-		{
-			if(e.getCodigoLivro() == codigoLivro && e.getDataDevolucao()==null)
-				e.setDataDevolucao(LocalDate.now());		
-		}
-	}
-	
-	public void devolveDisponibilizaExemplar(int codigoLivro) {
-		for (Emprestimo e : emprestimos)
-		{
-			if(e.getCodigoLivro() == codigoLivro)
-			{
-				if(e.getDataDevolucao()==null)
-				{
-					e.setDataDevolucao(LocalDate.now());
-					e.getExemplar().disponibilizarExemplar();			
-				}
-			}	
-		}
-	}
-	
-	public boolean temReserva() {
-		if(reservas.size()>0)
-			return true;
-		else
-			return false;
-	}
-	
 
 }

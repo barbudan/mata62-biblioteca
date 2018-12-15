@@ -15,7 +15,7 @@ public class EmprestarProfessor implements EmprestarBehavior {
 		// Verifica se há livros disponíveis
 		
 		if(!livro.existeExemplar()) {
-			System.out.println("Não foi possivel efetuar o emprestimo - Nao ha exemplares para este livro na Biblioteca");
+			System.out.println("Nao foi possivel efetuar o emprestimo - Nao ha exemplares para este livro na Biblioteca");
 		}
 		
 		if (!livro.estaDisponivel() && !livro.estaReservado()) {
