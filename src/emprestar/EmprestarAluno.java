@@ -1,6 +1,5 @@
 package emprestar;
 
-import exemplar.Emprestado;
 import exemplar.Exemplar;
 import livro.Emprestimo;
 import livro.Livro;
@@ -58,7 +57,7 @@ public class EmprestarAluno implements EmprestarBehavior {
 		
 		Exemplar exemplar;
 		String codigoDoExemplar;
-		int totalDiasEmprestimo = usuario.getTotalDiasEmprestimo();
+		int totalDiasEmprestimo = usuario.getMaximoDiasEmprestimo();
 		
 		if(usuarioFezReserva && livro.estaReservado()) {
 			

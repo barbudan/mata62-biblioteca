@@ -3,11 +3,11 @@ package livro;
 import java.time.LocalDate;
 
 public class Reserva {
-	LocalDate dataReserva;
-	String titulo;
-	int codigoLivro;
-	String nomeUsuario;
-	int codigoUsuario;
+	private LocalDate dataReserva;
+	private String titulo;
+	private int codigoLivro;
+	private String nomeUsuario;
+	private int codigoUsuario;
 
 	public Reserva(String titulo, int codigoLivro, String nomeUsuario, int codigoUsuario) {
 		this.dataReserva = LocalDate.now();

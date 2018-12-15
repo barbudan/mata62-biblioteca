@@ -67,6 +67,24 @@ public class Livro implements Subject {
 		return null;
 	}
 	
+	public Exemplar getExemplarDisponivel() {
+		for(Exemplar e : exemplares) {
+			if(e.estaDisponivel()) {
+				return e;
+			}
+		}
+		return null;
+	}
+	
+	public Exemplar getExemplarReservado() {
+		for(Exemplar e : exemplares) {
+			if(e.estaReservado()) {
+				return e;
+			}
+		}
+		return null;
+	}
+	
 	// MÉTODOS EM RESERVA //
 	
 	public void adicionarReserva(Reserva r) {
@@ -151,24 +169,6 @@ public class Livro implements Subject {
 		if(exemplares.size()>0)
 			return true;
 		return false;
-	}
-
-	public Exemplar getExemplarDisponivel() {
-		for(Exemplar e : exemplares) {
-			if(e.estaDisponivel()) {
-				return e;
-			}
-		}
-		return null;
-	}
-	
-	public Exemplar getExemplarReservado() {
-		for(Exemplar e : exemplares) {
-			if(e.estaReservado()) {
-				return e;
-			}
-		}
-		return null;
 	}
 	
 	public int getNumExemplaresDisponiveis() {
@@ -282,6 +282,5 @@ public class Livro implements Subject {
 			o.update(this);
 		}
 	}
-
 
 }

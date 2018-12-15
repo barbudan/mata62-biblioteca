@@ -1,10 +1,9 @@
 package emprestar;
 
-import exemplar.Emprestado;
+
 import exemplar.Exemplar;
 import livro.Emprestimo;
 import livro.Livro;
-import livro.Reserva;
 import usuario.Usuario;
 
 public class EmprestarProfessor implements EmprestarBehavior {
@@ -39,7 +38,7 @@ public class EmprestarProfessor implements EmprestarBehavior {
 			exemplar = livro.getExemplarReservado();
 		
 		String codigoDoExemplar = exemplar.getCodigoExemplar();
-		int totalDiasEmprestimo = usuario.getTotalDiasEmprestimo();
+		int totalDiasEmprestimo = usuario.getMaximoDiasEmprestimo();
 		
 		// Adiciona o empréstimo
 		exemplar.emprestarExemplar();

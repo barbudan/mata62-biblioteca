@@ -37,16 +37,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="emprestar.EmprestarPosGraduacao" project="MATA62 - Biblioteca" 
-    file="/MATA62 - Biblioteca/src/emprestar/EmprestarPosGraduacao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="90" y="674"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="sistema.Sair" project="MATA62 - Biblioteca" 
+  <class id="5" language="java" name="sistema.Sair" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/Sair.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="155" x="770" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -55,7 +46,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="exemplar.Reservado" project="MATA62 - Biblioteca" 
+  <class id="6" language="java" name="exemplar.Reservado" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/exemplar/Reservado.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="150" y="1844"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -64,7 +55,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="usuario.AlunoPosGraduacao" project="MATA62 - Biblioteca" 
+  <class id="7" language="java" name="usuario.AlunoPosGraduacao" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/usuario/AlunoPosGraduacao.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="899" y="864"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,7 +64,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="sistema.Biblioteca" project="MATA62 - Biblioteca" 
+  <class id="8" language="java" name="sistema.Biblioteca" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/Biblioteca.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1152" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -82,7 +73,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="emprestar.EmprestarProfessor" project="MATA62 - Biblioteca" 
+  <class id="9" language="java" name="emprestar.EmprestarProfessor" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/emprestar/EmprestarProfessor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="96" y="530"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="exemplar.Disponivel" project="MATA62 - Biblioteca" 
+  <class id="10" language="java" name="exemplar.Disponivel" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/exemplar/Disponivel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="129" y="1638"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="12" language="java" name="usuario.Observer" project="MATA62 - Biblioteca" 
+  <interface id="11" language="java" name="usuario.Observer" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/usuario/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1293" y="697"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,7 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="13" language="java" name="usuario.Subject" project="MATA62 - Biblioteca" 
+  <interface id="12" language="java" name="usuario.Subject" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/usuario/Subject.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2140" y="990"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="14" language="java" name="sistema.AddObserver" project="MATA62 - Biblioteca" 
+  <class id="13" language="java" name="sistema.AddObserver" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/AddObserver.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="156" x="965" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="emprestar.EmprestarAluno" project="MATA62 - Biblioteca" 
+  <class id="14" language="java" name="emprestar.EmprestarAluno" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/emprestar/EmprestarAluno.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="86" y="370"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="sistema.DevolverLivro" project="MATA62 - Biblioteca" 
+  <class id="15" language="java" name="sistema.DevolverLivro" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/DevolverLivro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="155" x="1161" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="exemplar.Exemplar" project="MATA62 - Biblioteca" 
+  <class id="16" language="java" name="exemplar.Exemplar" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/exemplar/Exemplar.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1252" y="1645"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="sistema.ConsultarLivro" project="MATA62 - Biblioteca" 
+  <class id="17" language="java" name="sistema.ConsultarLivro" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/ConsultarLivro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="157" x="1356" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,7 +154,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="livro.Emprestimo" project="MATA62 - Biblioteca" 
+  <class id="18" language="java" name="livro.Emprestimo" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/livro/Emprestimo.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="672" y="1284"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -172,7 +163,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="20" language="java" name="emprestar.EmprestarBehavior" project="MATA62 - Biblioteca" 
+  <interface id="19" language="java" name="emprestar.EmprestarBehavior" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/emprestar/EmprestarBehavior.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="354" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -181,7 +172,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="21" language="java" name="sistema.ReservarLivro" project="MATA62 - Biblioteca" 
+  <class id="20" language="java" name="sistema.ReservarLivro" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/ReservarLivro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="155" x="1553" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -190,7 +181,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="usuario.Usuario" project="MATA62 - Biblioteca" 
+  <class id="21" language="java" name="usuario.Usuario" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/usuario/Usuario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="657" y="592"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -199,7 +190,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="exemplar.Emprestado" project="MATA62 - Biblioteca" 
+  <class id="22" language="java" name="exemplar.Emprestado" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/exemplar/Emprestado.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="110" y="1446"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -208,7 +199,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="livro.Reserva" project="MATA62 - Biblioteca" 
+  <class id="23" language="java" name="livro.Reserva" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/livro/Reserva.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="214" y="946"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -217,7 +208,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="sistema.Parametros" project="MATA62 - Biblioteca" 
+  <class id="24" language="java" name="sistema.Parametros" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/Parametros.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="189" width="114" x="101" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -226,7 +217,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="usuario.AlunoGraduacao" project="MATA62 - Biblioteca" 
+  <class id="25" language="java" name="usuario.AlunoGraduacao" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/usuario/AlunoGraduacao.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="898" y="726"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -235,7 +226,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="livro.Livro" project="MATA62 - Biblioteca" 
+  <class id="26" language="java" name="livro.Livro" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/livro/Livro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1648" y="961"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -244,7 +235,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="sistema.ConsultarNotificacoes" project="MATA62 - Biblioteca" 
+  <class id="27" language="java" name="sistema.ConsultarNotificacoes" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/ConsultarNotificacoes.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="157" x="1748" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -253,7 +244,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="sistema.Controle" project="MATA62 - Biblioteca" 
+  <class id="28" language="java" name="sistema.Controle" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/Controle.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="134" x="1945" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -262,7 +253,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="sistema.EmprestarLivro" project="MATA62 - Biblioteca" 
+  <class id="29" language="java" name="sistema.EmprestarLivro" project="MATA62 - Biblioteca" 
     file="/MATA62 - Biblioteca/src/sistema/EmprestarLivro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="117" width="161" x="2119" y="54"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -271,264 +262,260 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="31">    
-    <end type="SOURCE" refId="29" navigable="false">      
-      <attribute id="32" name="mapaComandos">        
+  <association id="30">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="31" name="livro">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="2147483647">        
+      <multiplicity id="32" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="33">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="19"/>  
+  </realization>  
   <association id="34">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="35" name="listaDeUsuarios">        
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="35" name="emprestimos">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="36" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="37">    
-    <end type="SOURCE" refId="6"/>    
+  <association id="37">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="38" name="emprestimoBehavior">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="41" name="emprestimos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="44" name="listaDeLivros">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="46">    
+    <end type="SOURCE" refId="29"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <realization id="38">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <association id="39">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="40" name="reservas">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="42">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="43">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="44">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="45" name="listaDeLivros">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="46" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="47">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="48" name="reservas">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="48" name="exemplar">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="49" minimum="0" maximum="2147483647">        
+      <multiplicity id="49" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="50">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
   <association id="51">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="52" name="exemplar">        
+    <bendpoint x="1038" y="1088"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="52" name="exemplares">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
+      <multiplicity id="53" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="54">    
-    <end type="SOURCE" refId="16"/>    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
   <association id="55">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="56" name="emprestimoBehavior">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="56" name="usuario">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="57" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="58">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="22"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="21"/>  
   </generalization>  
-  <realization id="59">    
-    <end type="SOURCE" refId="30"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <realization id="60">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
-  <association id="61">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="62" name="livro">        
+  <association id="59">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="60" name="instancia">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="63" minimum="0" maximum="1">        
+      <multiplicity id="61" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="64">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="65" name="estado">        
+  <association id="62">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="63" name="estado">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="66" minimum="0" maximum="1">        
+      <multiplicity id="64" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="67">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="2"/>  
-  </realization>  
+  <association id="65">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="66" name="reservas">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="68">    
-    <bendpoint x="1038" y="1088"/>    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="69" name="exemplares">        
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="69" name="reservas">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="70" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="71">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="19"/>  
   </realization>  
   <realization id="72">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="12"/>  
-  </realization>  
-  <association id="73">    
-    <bendpoint x="1059" y="1088"/>    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="74" name="observadores">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="75" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="77" name="usuario">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="78" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="80" name="emprestimos">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="81" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="83" name="instancia">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="84" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="85">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="22"/>  
-  </generalization>  
-  <realization id="86">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="87">    
-    <end type="SOURCE" refId="18"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <generalization id="88">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="22"/>  
+  <realization id="73">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <generalization id="74">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
   </generalization>  
-  <association id="89">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="90" name="emprestimos">        
+  <realization id="75">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <realization id="76">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="77">    
+    <bendpoint x="1059" y="1088"/>    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="78" name="observadores">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="91" minimum="0" maximum="2147483647">        
+      <multiplicity id="79" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="92">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="20"/>  
+  <realization id="80">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
   </realization>  
-  <realization id="93">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <realization id="94">    
+  <association id="81">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="82" name="mapaComandos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
     <end type="SOURCE" refId="27"/>    
-    <end type="TARGET" refId="13"/>  
+    <end type="TARGET" refId="2"/>  
   </realization>  
+  <realization id="85">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="86">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="87">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <realization id="88">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="12"/>  
+  </realization>  
+  <realization id="89">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
+  <association id="90">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="91" name="listaDeUsuarios">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="92" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

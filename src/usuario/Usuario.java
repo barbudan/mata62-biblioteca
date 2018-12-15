@@ -15,7 +15,7 @@ public abstract class Usuario {
 	private int codigoUsuario;
 	private int numReservas = 0;
 	private int numEmprestimos = 0;
-	private int totalDiasEmprestimo;
+	private int maximoDiasEmprestimo;
 	EmprestarBehavior emprestimoBehavior;
 
 	public ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
@@ -69,12 +69,12 @@ public abstract class Usuario {
 		return null;
 	}
 
-	public int getTotalDiasEmprestimo() {
-		return this.totalDiasEmprestimo;
+	public int getMaximoDiasEmprestimo() {
+		return this.maximoDiasEmprestimo;
 	}
 	
-	public void setTotalDiasEmprestimo(int dias) {
-		this.totalDiasEmprestimo = dias;
+	public void setMaximoDiasEmprestimo(int dias) {
+		this.maximoDiasEmprestimo = dias;
 	}
 	
 	// MÉTODOS AUXILIARES //
