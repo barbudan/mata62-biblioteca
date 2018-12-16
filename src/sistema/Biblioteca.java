@@ -40,7 +40,6 @@ public class Biblioteca {
 		return null;
 	}
 
-	
 	private Usuario getUsuario(int codigo) {
 		for (Usuario u : listaDeUsuarios) {
 			if (u.getCodigo() == codigo) {
@@ -61,7 +60,9 @@ public class Biblioteca {
 		listaDeLivros.add(l);
 	}
 
-
+	
+	// OPERACOES DA BIBLIOTECA //
+	
 	public void addObserver(int codigoUsuario, int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
 		
@@ -72,9 +73,6 @@ public class Biblioteca {
 		
 		System.out.println("Professor " + usu.getNome() + " esta agora observando o livro " + livro.getTitulo());
 	}
-	
-	
-	// OPERACOES DA BIBLIOTECA //
 	
 	public void consultarLivro(int codigoLivro) {
 		Biblioteca b = Biblioteca.getInstancia();
