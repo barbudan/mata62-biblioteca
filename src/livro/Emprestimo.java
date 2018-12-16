@@ -24,9 +24,8 @@ public class Emprestimo {
 		this.dataPrevistaDevolucao = LocalDate.now().plusDays(numeroDias);
 	}
 
-	public void setDataDevolucao(LocalDate dataDevolucao) {
-		this.dataDevolucao = dataDevolucao;
-	}
+	
+	// GETTERS && SETTERS //
 
 	public Livro getLivro() {
 		return livro;
@@ -56,10 +55,6 @@ public class Emprestimo {
 		return dataPrevistaDevolucao;
 	}
 
-	public void setEstadoExemplar(String estado) {
-		this.estadoExemplar = estado;
-	}
-
 	public String getEstadoExemplar() {
 		return this.estadoExemplar;
 	}
@@ -75,7 +70,18 @@ public class Emprestimo {
 	public String getNomeEstadoExemplar() {
 		return exemplar.getNomeEstadoExemplar();
 	}
+	
+	public void setDataDevolucao(LocalDate dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
 
+	public void setEstadoExemplar(String estado) {
+		this.estadoExemplar = estado;
+	}
+
+	
+	// METODOS ESTADOS EXEMPLARES //
+	
 	public boolean exemplarEstaDisponivel() {
 		if(exemplar.estaDisponivel())
 			return true;

@@ -29,7 +29,9 @@ public class Livro implements Subject {
 	private ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
 	private ArrayList<Observer> observadores = new ArrayList<Observer>();
 
-	// GETTERS //
+	
+	// GETTERS && SETTERS //
+	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -85,6 +87,41 @@ public class Livro implements Subject {
 		return null;
 	}
 	
+	public Reserva getReserva(int codigoLivro, int codigoUsuario) {
+		for(Reserva r : reservas) {
+			if(r.getCodigoLivro() == codigoLivro && r.getCodigoUsuario() == codigoUsuario) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	public int getNumReservas() {
+		int numReservas = reservas.size();
+		return numReservas;
+	}
+	
+	public int getNumExemplaresDisponiveis() {
+		int exemplaresDisponiveis = 0;
+		for (Exemplar e : exemplares) {
+			if (e.estaDisponivel()) {			
+				exemplaresDisponiveis++;
+			}
+		}
+		return exemplaresDisponiveis;
+	}
+	
+	public int getNumExemplaresReservados() {
+		int exemplaresReservados = 0;
+		for (Exemplar e : exemplares) {
+			if (e.estaReservado()) {
+				exemplaresReservados++;
+			}
+		}
+		return exemplaresReservados;
+	}
+	
+	
 	// MÉTODOS EM RESERVA //
 	
 	public void adicionarReserva(Reserva r) {
@@ -111,26 +148,43 @@ public class Livro implements Subject {
 				flagReserva=false;
 		}
 	}
-
-	public Reserva getReserva(int codigoLivro, int codigoUsuario) {
-		for(Reserva r : reservas) {
-			if(r.getCodigoLivro() == codigoLivro && r.getCodigoUsuario() == codigoUsuario) {
-				return r;
-			}
+	
+	public void listarUsuariosComReservas() {
+		System.out.println("RESERVAS");
+		for(Reserva r : reservas){			
+			System.out.println("Nome do Usuario: " + r.getNomeUsuario());
 		}
-		return null;
 	}
 	
-	public int getNumReservas() {
-		int numReservas = reservas.size();
-		return numReservas;
-	}
 	
 	// MÉTODOS EM EMPRESTIMO //
 	
 	public void addEmprestimo(Emprestimo e) {
 		emprestimos.add(e);
-		
+	}
+	
+	
+	public void removerEmprestimo(Emprestimo e) {
+		int index = emprestimos.indexOf(e);
+		if (index >= 0) {
+			emprestimos.remove(index);
+		}
+	}
+	
+	public void removerEmprestimoPorExemplar(String codigoExemplar) {
+		int index = indiceEmprestimoPorExemplar(codigoExemplar);
+		emprestimos.remove(index);
+	}
+	
+	public int indiceEmprestimoPorExemplar(String codigoExemplar) {
+		for(Emprestimo e : emprestimos)
+		{
+			if(e.getCodigoExemplar() == codigoExemplar) {
+				int index = emprestimos.indexOf(e);
+				return index;
+			}
+		}
+		return 0;
 	}
 	
 	// MÉTODOS EM EXEMPLAR //
@@ -158,8 +212,7 @@ public class Livro implements Subject {
 	}
 	
 	public void removerExemplar(Exemplar e) {
-		if(exemplares.size()>0)
-		{
+		if(exemplares.size()>0){
 			int i = exemplares.indexOf(e);
 			exemplares.remove(i);
 		}
@@ -170,42 +223,12 @@ public class Livro implements Subject {
 			return true;
 		return false;
 	}
-	
-	public int getNumExemplaresDisponiveis() {
-		int exemplaresDisponiveis = 0;
-		for (Exemplar e : exemplares) {
-			if (e.estaDisponivel()) {			
-				exemplaresDisponiveis++;
-			}
-		}
-		return exemplaresDisponiveis;
-	}
-	
-	public int getNumExemplaresReservados() {
-		int exemplaresReservados = 0;
-		for (Exemplar e : exemplares) {
-			if (e.estaReservado()) {
-				exemplaresReservados++;
-			}
-		}
-		return exemplaresReservados;
-	}
 
-	// Verifica se tem menos reservas que exemplares disponiveis
-	// Se sim, retorna true
 	public boolean maisExemplaresDisponiveisQueReservados() {
 		if (this.getNumExemplaresDisponiveis() > reservas.size()) {
 			return true;
 		}
 		return false;
-	}
-	
-	public void listarUsuariosComReservas() {
-		System.out.println("RESERVAS");
-		for(Reserva r : reservas)
-		{			
-			System.out.println("Nome do Usuario: " + r.getNomeUsuario());
-		}
 	}
 	
 	public void listarExemplares() {
@@ -232,29 +255,7 @@ public class Livro implements Subject {
 			}
 		}
 	}
-	
-	public void removerEmprestimo(Emprestimo e) {
-		int index = emprestimos.indexOf(e);
-		if (index >= 0) {
-			emprestimos.remove(index);
-		}
-	}
-	
-	public void removerEmprestimoPorExemplar(String codigoExemplar) {
-		int index = indiceEmprestimoPorExemplar(codigoExemplar);
-		emprestimos.remove(index);
-	}
-	
-	public int indiceEmprestimoPorExemplar(String codigoExemplar) {
-		for(Emprestimo e : emprestimos)
-		{
-			if(e.getCodigoExemplar() == codigoExemplar) {
-				int index = emprestimos.indexOf(e);
-				return index;
-			}
-		}
-		return 0;
-	}
+
 	
 	// PADRÃO OBSERVER //
 	
