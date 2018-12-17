@@ -111,7 +111,10 @@ public abstract class Usuario {
 	public void devolveReservaExemplar(int codigoLivro) {
 		for (Emprestimo e : emprestimos) {
 			if (e.getCodigoLivro() == codigoLivro && e.getDataDevolucao() == null)
+			{
 				e.setDataDevolucao(LocalDate.now());
+				return;
+			}
 		}
 	}
 
