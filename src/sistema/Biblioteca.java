@@ -125,7 +125,6 @@ public class Biblioteca {
 
 			usu.devolveReservaExemplar(codigoLivro);
 			usu.subNumEmprestimos();
-			System.out.println(e.getCodigoExemplar());
 			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
 		} else
 			System.out.println("Devoluçao nao concluida. Livro " + livro.getTitulo() + " nao esta em posse do Usuario "
