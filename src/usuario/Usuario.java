@@ -54,9 +54,9 @@ public abstract class Usuario {
 		this.maximoDiasEmprestimo = dias;
 	}
 
-	public Exemplar getExemplar(int codigoLivro) {
+	public Exemplar getExemplarParaDevolver(int codigoLivro) {
 		for (Emprestimo e : emprestimos)
-			if (e.getCodigoLivro() == codigoLivro)
+			if (e.getCodigoLivro() == codigoLivro && e.exemplarEstaEmprestado() && e.getDataDevolucao()==null)
 				return e.getExemplar();
 		return null;
 	}
@@ -149,7 +149,7 @@ public abstract class Usuario {
 	
 	public boolean livroEstaComUsuario(int codigo) {
 		for (Emprestimo e : emprestimos) {
-			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao() != null) {
+			if (e.getCodigoLivro() == codigo && e.exemplarEstaEmprestado() && e.getDataDevolucao() == null) {
 				return true;
 			}
 		}

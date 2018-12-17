@@ -117,7 +117,7 @@ public class Biblioteca {
 		Livro livro = b.getLivro(codigoLivro);
 
 		if (usu.livroEstaComUsuario(codigoLivro)) {
-			Exemplar e = usu.getExemplar(codigoLivro);
+			Exemplar e = usu.getExemplarParaDevolver(codigoLivro);
 			System.out.println("Livro " + livro.getTitulo() + " devolvido pelo Usuario " + usu.getNome());
 			e.disponibilizarExemplar();
 			if (livro.getNumReservas() != livro.getNumExemplaresReservados())
@@ -125,6 +125,7 @@ public class Biblioteca {
 
 			usu.devolveReservaExemplar(codigoLivro);
 			usu.subNumEmprestimos();
+			System.out.println(e.getCodigoExemplar());
 			livro.removerEmprestimoPorExemplar(e.getCodigoExemplar());
 		} else
 			System.out.println("Devoluçao nao concluida. Livro " + livro.getTitulo() + " nao esta em posse do Usuario "
