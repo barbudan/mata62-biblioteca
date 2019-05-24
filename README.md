@@ -1,5 +1,4 @@
 # MATA62 - Engenharia de Software I
-# Desenvolver um Sistema de Biblioteca utilizando corretamente diversos Padrões de Projeto
 
 ## **Informações Gerais**
 
@@ -7,4 +6,5 @@
 
 ## **Etc**
 
+###### Desenvolver um Sistema de Biblioteca utilizando corretamente diversos Padrões de Projeto.
 ###### Desenvolvido na Linguagem de Programação Java. Instruções e especificações do trabalho estão presentes no PDF "Instructions".
